@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<!-- 导航头 -->
+<view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight+tabsHeight}}px">
+  <view class="nbar" style="height:{{navBarHeight}}px; ">
+    <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
+      <view class="position_button">
+        <text>锦州</text>
+        <van-icon name="arrow-down" />
+      </view>
+      <view class="searchInput" style="height: {{menuHeight-2}}px; margin-right: {{menuWidth+(menuRight*2)}}px; width: {{searchWidth-2}}px; margin-left: {{menuRight}}px;">
+        <van-icon 
+          name="search" 
+          size="30rpx" 
+          color="rgba(0,0,0,.4)" 
+          custom-style="margin:0 10rpx 0 15rpx"
+          />
+        <text style="line-height: {{menuHeight-2}}px;">请输入搜索关键字</text>
+      </view>
+    </view>
+  </view>
+  <van-tabs 
+      active="{{ active }}" 
+      bind:change="onChange" 
+      color="#5BC88D"
+      title-active-color="#5BC88D!important"
+      line-width="15px"
+      animated
+      swipeable
+      >
+      <van-tab 
+        wx:for="{{courseTabs}}"
+        wx:index:="index"
+        title="{{item}}"
+        title-style="font-size: 29rpx; line-height: {{tabsHeight-5}}px;font-weight: bold;transition: color .3s;"
+        >
+        <view>
+          <view class="swiper-block">
+            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="350">  
+                  <block wx:for="{{bannerImages}}" wx:for-index="index">  
+                    <swiper-item>  
+                      <image src="{{item.url}}" class="banner_image" mode="scaleToFill"></image>  
+                    </swiper-item>  
+                  </block>  
+                </swiper>
+          </view>
+          <view class="course_list"> 
+              <view class="course_list_title"> 
+                <text>课程内容</text>
+              </view>
+              <view class="course_list_list">
+                <course-unit wx:for="{{courseList}}" wx:for-index="index"></course-unit> 
+              </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+</view>
+
+
+

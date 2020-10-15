@@ -1,0 +1,7 @@
+<view class="nbar" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px; ">
+  <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
+    <text style="color: {{fontColor}}">{{title}}</text>
+  </view>
+</view>
+
+

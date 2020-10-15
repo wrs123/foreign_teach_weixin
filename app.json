@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/course/course",
+    "pages/mystudy/mystudy",
+    "pages/accounts/accounts",
+    "pages/other/other",
+    "pages/logs/logs",
+    "components/courseListUnit/courseListUnit"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#31a030",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#5BC88D",
+    "navigationBarTitleText": "外语家教",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#5BC88D",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-fill.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "全部课程",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book-fill.png"
+      },
+      {
+        "pagePath": "pages/accounts/accounts",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-fill.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

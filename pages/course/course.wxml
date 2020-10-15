@@ -1,0 +1,17 @@
+<!--pages/course/course.wxml-->
+<view style="overflow-y: auto;">
+  <navBar title="全部课程" fontColor="#333" backgroundColor="#fff"></navBar>
+  <view class="page">
+    <van-tabs 
+      active="{{ active }}" 
+      bind:change="onChange" 
+      color="#5BC88D"
+      sticky
+      >
+      <van-tab title="小学">0</van-tab>
+      <van-tab title="初中">1</van-tab>
+      <van-tab title="高中">2</van-tab>
+      <van-tab title="大学">3</van-tab>
+    </van-tabs>
+  </view>
+</view>

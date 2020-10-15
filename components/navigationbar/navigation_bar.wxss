@@ -1,0 +1,13 @@
+.nbar{
+  width: calc(100vw - 50rpx);
+  padding-left: 50rpx;
+  position: relative;
+}
+
+.nbar text{
+  font-size: 35rpx;
+}
+
+.capsule-box{
+  position: absolute;
+}

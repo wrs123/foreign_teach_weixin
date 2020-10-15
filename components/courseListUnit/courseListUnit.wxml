@@ -1,0 +1,19 @@
+<!--components/courseListUnit/courseListUnit.wxml-->
+<view class="course_unit">
+  <image class="unit_image"></image>
+  <view class="unit_text">
+      <view class="unit_title">MYSQL入门到入土</view>
+      <view class="unit_status_bar">
+        <view class="unit_reservation_cost">
+          <text>¥233</text>
+        </view>
+        <view class="unit_reservation_status unit_s">
+          <van-icon name="clock-o" />
+          <text>9820</text>
+        </view>
+        <view class="unit_comment_count unit_s">
+          <text>92人评论</text>
+        </view>
+      </view>
+  </view>
+</view>

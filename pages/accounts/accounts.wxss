@@ -1,0 +1,159 @@
+/* pages/accounts/accounts.wxss */
+.block{
+  border-radius: 5px;
+  box-shadow: 0 0 30rpx 0 rgba(0,0,0,.1);
+  background-color: white;
+}
+
+.body{
+  background-color: #F3F3F3;
+  width: 100%;
+  display: block;
+}
+
+.avatar-bg{
+  background-color: #5BC88D;
+  width: 100%;
+  height: 350rpx;
+  z-index: 0;
+  border-bottom-right-radius: 50% 15%;
+  border-bottom-left-radius: 50% 15%;
+}
+
+.content{
+  position: absolute;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 头像 */
+.avatar{
+  width: calc(100% / 2);
+  height: 230rpx;
+  left: calc(100% / 4);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.avatar text{
+  padding-top: 10rpx;
+  color: #fff;
+  font-size: 35rpx;
+}
+
+/* 我的预约 */
+.my-order{
+  width: calc(100% - 100rpx);
+}
+
+.my-order .title{
+  font-size: 30rpx;
+  padding: 20rpx;
+  border-bottom: .15rpx solid rgba(0,0,0,.04);
+}
+
+.my-button-bar{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.my-button-bar .bar-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-button-bar .bar-child image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 15rpx;
+} 
+
+.my-button-bar .bar-child text{
+  font-size: 25rpx;
+}
+
+/* 我的发布 */
+.oprate-list{
+  width: calc(100% - 100rpx);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+
+.oprate-list .oprate-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20rpx;
+}
+
+.oprate-list .title{
+  font-size: 30rpx;
+  padding: 20rpx;
+  border-bottom: .15rpx solid rgba(0,0,0,.04);
+}
+
+.oprate-list-child image{
+  height: 43rpx;
+  width: 43rpx;
+  margin-right: 20rpx;
+}
+
+.oprate-list-child text{
+  font-size: 28rpx;
+}
+
+.oprate-list-child{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding: 25rpx 20rpx 25rpx 20rpx;
+  align-items: center;
+  border-bottom: .15rpx solid rgba(0,0,0,.04);
+}
+
+.oprate-list-child:last-child{
+  border: none;
+}
+
+/* 反馈 */
+.callback{
+  width: calc(100% - 155rpx);
+  margin-top: 35rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25rpx 20rpx 25rpx 40rpx
+}
+
+.callback image{
+  height: 43rpx;
+  width: 43rpx;
+  margin-right: 20rpx;
+}
+
+.callback text{
+  font-size: 28rpx;
+}
