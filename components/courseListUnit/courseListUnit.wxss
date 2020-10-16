@@ -3,7 +3,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 20rpx 0;
 }
 
@@ -15,20 +15,20 @@
 }
 
 .course_unit .unit_text{
-  margin-left: 40rpx;
   display: flex;
   flex-direction: column;
 }
 
 .unit_text .unit_title{
   color: #333;
-  font-size: 33rpx;  
+  font-size: 30rpx;  
+  margin-top: 10rpx;
 }
 
 .unit_status_bar{
   display: flex;
   flex-direction: row;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   /* justify-content: space-between; */
 }
 
@@ -38,7 +38,7 @@
 
 .unit_reservation_cost text{
   color: #5579E1;
-  font-size: 40rpx;
+  font-size: 30rpx;
 }
 
 .unit_s{
@@ -48,10 +48,20 @@
 }
 
 .unit_s van-icon{
-  padding-right: 10rpx;
+  padding-right: 5rpx;
+  font-size: 25rpx;
 }
 
 .unit_s text{
   padding-right: 10rpx;
   line-height: 55rpx;
+  font-size: 25rpx;
+}
+
+.course_list_list{
+  /* margin-top: 20rpx; */
+}
+
+.course_list_list .course_unit{
+  float: left;
 }

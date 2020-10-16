@@ -5,6 +5,7 @@
     "van-icon": "@vant/weapp/icon/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "course-unit": "/components/courseListUnit/courseListUnit"
+    "course-unit": "/components/courseListUnit/courseListUnit",
+    "e-tabs": "/components/easyui/senior/tabs/tabs"
   }
 }

@@ -1,3 +1,4 @@
+// component/senior/tabs/tabs.js
 const themes = {
   smallBar: 'smallBar'
 }
@@ -16,23 +17,19 @@ Component({
             itemWidth: (750 / newVal.length) - 60
           })
         }
-      },
-    },
-    background: {
-      type: String,
-      value: "#fff"
+      }
     },
     height: {
       type: String,
-      value: '120'
+      value: '50'
     },
     textColor: {
       type: String,
-      value: '#666666'
+      value: '#333333'
     },
     textSize: {
       type: String,
-      value: '28'
+      value: '29'
     },
     selectColor: {
       type: String,
@@ -45,6 +42,7 @@ Component({
         this.setData({
           mSelected: newVal
         })
+        this.onItemTap({ currentTarget: { dataset: { index: newVal } } })
       }
     },
     theme: {
@@ -53,7 +51,7 @@ Component({
       observer: function (newVal) {
         if (this.data.theme == themes.smallBar) {
           this.setData({
-            bottom: this.data.height / 2 - this.data.textSize - 8,
+            bottom: this.data.height / 2 - this.data.textSize,
             scrollStyle: ''
           })
         }
@@ -97,14 +95,14 @@ Component({
   methods: {
     barLeft: function(index, dom) {
       let that = this;
-      this.setData({
-        left: dom[index].left
+      dom[index] && this.setData({
+        left: dom[index].left+10
       })
     },
     barRight: function (index, dom) {
       let that = this;
       this.setData({
-        right: that.data.windowWidth - dom[index].right,
+        right: that.data.windowWidth - (dom[index] && dom[index].right)+10,
       })
     },
     onItemTap: function(e) {
@@ -144,7 +142,6 @@ Component({
         })
         that.barLeft(that.data.mSelected, that.data.domData);
         that.barRight(that.data.mSelected, that.data.domData);
-        // console.log(res)
       }).exec()
       query.in(this).selectAll('.text').fields({
         dataset: true,
@@ -158,7 +155,6 @@ Component({
           that.barLeft(that.data.mSelected, that.data.textDomData);
           that.barRight(that.data.mSelected, that.data.textDomData);
         }
-        console.log(res)
       }).exec()
     },
   },

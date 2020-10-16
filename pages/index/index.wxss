@@ -200,6 +200,7 @@
 
 .swiper-block{
   margin: 20rpx 15px;
+  margin-top: 20rpx;
   border-radius: 5px;
   box-shadow: 10rpx 10rpx 15rpx 0 rgba(0,0,0,.2);
   overflow: hidden;
@@ -216,8 +217,25 @@
   font-weight: bold;
 }
 
-.course_list_list{
-  margin-top: 20rpx;
+.tabContent{
+  display: flex;
+  flex-direction: row;
+  position: relative;
 }
+
+.active{
+  opacity: 1!important;
+}
+
+.tabc{
+  /* transition: left .3s;
+  will-change: left; */
+  width: 100vw; 
+  position: absolute;
+  opacity: 0;
+  transition: opacity .8s;
+  will-change: opacity;
+}
+
 
 

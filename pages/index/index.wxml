@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!-- 导航头 -->
-<view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight+tabsHeight}}px">
+<view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight+30}}px">
   <view class="nbar" style="height:{{navBarHeight}}px; ">
     <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
       <view class="position_button">
@@ -18,7 +18,13 @@
       </view>
     </view>
   </view>
-  <van-tabs 
+  <e-tabs
+    items='{{courseTabs}}'
+    selectColor='#5BC88D'
+    theme='smallBar' 
+    bind:itemtap="onTbaChange"    
+  />
+  <!-- <van-tabs 
       active="{{ active }}" 
       bind:change="onChange" 
       color="#5BC88D"
@@ -33,28 +39,29 @@
         title="{{item}}"
         title-style="font-size: 29rpx; line-height: {{tabsHeight-5}}px;font-weight: bold;transition: color .3s;"
         >
-        <view>
-          <view class="swiper-block">
-            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="350">  
-                  <block wx:for="{{bannerImages}}" wx:for-index="index">  
-                    <swiper-item>  
-                      <image src="{{item.url}}" class="banner_image" mode="scaleToFill"></image>  
-                    </swiper-item>  
-                  </block>  
-                </swiper>
-          </view>
-          <view class="course_list"> 
-              <view class="course_list_title"> 
-                <text>课程内容</text>
-              </view>
-              <view class="course_list_list">
-                <course-unit wx:for="{{courseList}}" wx:for-index="index"></course-unit> 
-              </view>
-          </view>
-        </view>
       </van-tab>
-    </van-tabs>
+    </van-tabs> -->
 </view>
+<view style="margin-top:{{navBarHeight+30}}px;" class="tabContent">
+  <view wx:for="{{courseTabList}}" data-index="{{ index }}" class="{{index == activeTabIndex ? 'active': ''}} tabc">
+    <view class="swiper-block">
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="350">  
+          <block wx:for="{{bannerImages}}" wx:for-index="index">  
+            <swiper-item>  
+              <image src="{{item.url}}" class="banner_image" mode="scaleToFill"></image>  
+            </swiper-item>  
+          </block>  
+        </swiper>
+    </view>
+    <view class="course_list"> 
+        <view class="course_list_title"> 
+          <text>课程内容{{index}}</text>
+        </view>
+        <course-unit tabContantList="{{courseList}}" wx:for-index="index"></course-unit> 
+    </view>
+    </view>
+</view>
+
 
 
 

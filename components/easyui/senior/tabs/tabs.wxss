@@ -1,4 +1,4 @@
-/* pages/course/course.wxss */
+/* component/senior/tabs/tabs.wxss */
 .component {
   background-color: white;
   white-space: nowrap;
@@ -6,22 +6,24 @@
 }
 .content {
   position: relative;
+  display: flex;
 }
 .item {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0 30rpx;
+  /* padding: 0 30rpx; */
 }
 .text {
-  transition: color 0.2s
+  transition: color 0.3s;
+  font-weight: bold;
 }
 .bottom-bar {
   position: absolute;
   height: 2px;
-  border-radius: 2px
+  border-radius: 5px
 }
 .small {
-  height: 4px;
-  border-radius: 2px;
+  height: 3px;
+  border-radius: 5px;
 }

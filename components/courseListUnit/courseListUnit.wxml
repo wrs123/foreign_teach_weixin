@@ -1,6 +1,12 @@
 <!--components/courseListUnit/courseListUnit.wxml-->
-<view class="course_unit">
-  <image class="unit_image"></image>
+<view class="course_list_list">
+  <view 
+  class="course_unit" 
+  wx:for="{{tabContantList}}" 
+  index="{{index}}" 
+  style="width:{{unitWidth}}px;margin-right:{{index % 2 == 0 ? 15 : 0}}px;"
+>
+  <image class="unit_image" style="width:{{unitWidth}}px; height: {{(unitWidth/16)*9}}px"></image>
   <view class="unit_text">
       <view class="unit_title">MYSQL入门到入土</view>
       <view class="unit_status_bar">
@@ -17,3 +23,6 @@
       </view>
   </view>
 </view>
+</view>
+
+

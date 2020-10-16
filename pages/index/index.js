@@ -11,7 +11,9 @@ Page({
       ],
       active: 0,
     courseTabs: ['小学', '初中', '高中', '大学'],
+    courseTabList: [0, 1, 2, 3],
     tabsHeight: 30,
+    activeTabIndex: 0,
     courseList: ['', '','','',''],
     navBarHeight: app.globalData.navBarHeight,//导航栏高度
     menuBotton: app.globalData.menuBotton,//导航栏距离顶部距离
@@ -26,15 +28,6 @@ Page({
       url:"../course/course"
       },
     userInfo: {}
-  },
-  /*点击banner上的圆选择相应的图片 */
-  bindStlBanner:function(e){
-    console.log(e);
-    var that = this;
-    var bannerIdx = e.currentTarget.dataset.index;
-      clearTimeout(that.data.banner.timeoutProcess);
-      that.changeBanner(bannerIdx);
-      that.data.banner.timeoutProcess = setInterval(that.timetochange,3000);
   },
   onLoad: function () {
     console.log('onLoad index')
@@ -73,33 +66,6 @@ Page({
 
     clearTimeout(that.data.banner.timeoutProcess);
   },
-  /**根据bannerArray的index显示 */
-  changeBanner:function(index){
-    var that = this,
-        banner = that.data.banner,
-        currindex = banner.currindex;
-
-    banner.bannerimg[currindex].class ='';
-    banner.bannerimg[index].class = 'active';
-    banner.currindex = index;
-    that.setData({
-    "banner":banner
-    });
-    //showImg  todo
-  },
-  /*轮播banner */
-  timetochange:function(){
-    var that = this,
-        banner = that.data.banner,
-        currindex = banner.currindex;
-        if(currindex < banner.bannerimg.length - 1)
-        {
-          currindex ++;
-        }else{
-          currindex = 0;
-        }
-        that.changeBanner(currindex);
-  },
   onPageScroll: function(e){
     let position = e.scrollTop;
     if(position > 1){
@@ -114,5 +80,12 @@ Page({
         });
       }
     }
-  }
+  },
+  onTbaChange(e) {
+    console.log(e.detail.currentTarget.dataset.index);
+   this.setData({
+    activeTabIndex: e.detail.currentTarget.dataset.index
+   })
+   console.log("activeTabIndex"+ this.data.activeTabIndex)
+  },
 })

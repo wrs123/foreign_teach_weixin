@@ -5,8 +5,7 @@
     "pages/mystudy/mystudy",
     "pages/accounts/accounts",
     "pages/other/other",
-    "pages/logs/logs",
-    "components/courseListUnit/courseListUnit"
+    "pages/logs/logs"
   ],
   "window": {
     "navigationStyle": "custom",

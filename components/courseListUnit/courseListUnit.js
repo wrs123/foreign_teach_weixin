@@ -1,18 +1,26 @@
 // components/courseListUnit/courseListUnit.js
-Page({
+var app = getApp();
 
+Component({
+  properties: {
+    tabContantList: {
+      type: Array,
+      data: []
+    }
+  },
   /**
    * 页面的初始数据
    */
   data: {
-
+      screenWidth: app.globalData.screenWidth,
+      unitWidth: ((app.globalData.screenWidth -30)/2)-7.5
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**
