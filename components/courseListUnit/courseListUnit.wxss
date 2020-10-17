@@ -37,7 +37,7 @@
 }
 
 .unit_reservation_cost text{
-  color: #5579E1;
+  color: #5BC88D;
   font-size: 30rpx;
 }
 

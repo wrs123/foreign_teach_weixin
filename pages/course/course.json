@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "navBar": "/components/navigationbar/navigation_bar",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "navBar": "/components/navigationbar/navigation_bar"
+  
   }
 }

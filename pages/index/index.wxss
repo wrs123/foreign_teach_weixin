@@ -144,12 +144,14 @@
 .position_button{
   margin-left: 20px;
   width: 60px;
+  display: flex;
+  align-self: center;
   float: left;
 }
 
-.position_button text{
-  font-size: 33rpx;
-  font-weight: bold;
+.position_button .text{
+  display: inline-block;
+  width: 68rpx;
   padding-right: 10rpx;
 }
 
@@ -176,7 +178,7 @@
   width: 100vw;
   position: fixed;
   top: 0;
-  z-index: 6;
+  z-index: 999999;
   background-color: white;
 }
 
@@ -225,6 +227,7 @@
 
 .active{
   opacity: 1!important;
+  z-index: 99!important;
 }
 
 .tabc{

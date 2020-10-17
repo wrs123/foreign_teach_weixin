@@ -3,8 +3,8 @@
 <view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight+30}}px">
   <view class="nbar" style="height:{{navBarHeight}}px; ">
     <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
-      <view class="position_button">
-        <text>锦州</text>
+      <view class="position_button" style="height:{{menuHeight}}px;">
+        <view class="text"><auto-text fontWeight="bold" content="{{position.district.name}}" width="68"></auto-text></view>
         <van-icon name="arrow-down" />
       </view>
       <view class="searchInput" style="height: {{menuHeight-2}}px; margin-right: {{menuWidth+(menuRight*2)}}px; width: {{searchWidth-2}}px; margin-left: {{menuRight}}px;">
@@ -24,23 +24,7 @@
     theme='smallBar' 
     bind:itemtap="onTbaChange"    
   />
-  <!-- <van-tabs 
-      active="{{ active }}" 
-      bind:change="onChange" 
-      color="#5BC88D"
-      title-active-color="#5BC88D!important"
-      line-width="15px"
-      animated
-      swipeable
-      >
-      <van-tab 
-        wx:for="{{courseTabs}}"
-        wx:index:="index"
-        title="{{item}}"
-        title-style="font-size: 29rpx; line-height: {{tabsHeight-5}}px;font-weight: bold;transition: color .3s;"
-        >
-      </van-tab>
-    </van-tabs> -->
+
 </view>
 <view style="margin-top:{{navBarHeight+30}}px;" class="tabContent">
   <view wx:for="{{courseTabList}}" data-index="{{ index }}" class="{{index == activeTabIndex ? 'active': ''}} tabc">
@@ -48,7 +32,7 @@
     <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="350">  
           <block wx:for="{{bannerImages}}" wx:for-index="index">  
             <swiper-item>  
-              <image src="{{item.url}}" class="banner_image" mode="scaleToFill"></image>  
+              <image src="{{item.url}}" class="banner_image" mode="scaleToFill"></image>           
             </swiper-item>  
           </block>  
         </swiper>

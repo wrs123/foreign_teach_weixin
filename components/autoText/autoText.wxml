@@ -1,0 +1,2 @@
+<!--components/autoText/autoText.wxml-->
+<text style="font-size: {{fontSize}}rpx; font-weight: {{fontWeight}}; width: {{width}}rpx" class="content" content="{{content}}">{{content}}</text>

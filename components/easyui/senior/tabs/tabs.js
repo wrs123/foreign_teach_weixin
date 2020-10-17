@@ -29,7 +29,7 @@ Component({
     },
     textSize: {
       type: String,
-      value: '29'
+      value: '30'
     },
     selectColor: {
       type: String,
