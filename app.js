@@ -33,7 +33,8 @@ App({
     menuRight: 0, // 胶囊距右方间距（方保持左、右间距一致）
     menuHeight: 0, // 胶囊高度（自定义内容可与胶囊高度保证一致）
     menuWidth: 0,
-    screenWidth: 0
+    screenWidth: 0,
+    screenHeight: 0
   }
   ,
   /**
@@ -51,6 +52,7 @@ App({
     this.globalData.menuHeight = menuButtonInfo.height;
     this.globalData.menuWidth = menuButtonInfo.width;
     this.globalData.screenWidth = systemInfo.windowWidth;
-    console,log("屏幕宽度为"+systemInfo.windowWidth);
+    this.globalData.screenHeight = systemInfo.windowHeight;
+
   }
 })

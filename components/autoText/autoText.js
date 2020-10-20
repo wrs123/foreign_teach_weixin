@@ -21,7 +21,6 @@ Component({
       value: 0,
       observer: function(newVal, oldVal) {
         // 属性值变化时执行
-        console.log(newVal)
         this.setFontSize(newVal)
       }
     },
@@ -39,12 +38,13 @@ Component({
    */
   methods: {
     setFontSize: function(text){
-      console.log(text.length)
-      console.log(this.properties.width)
       let l = text.length
+      
+      let fontSize = 0;
 
+      fontSize = this.properties.width / l > 35 ? 35:this.properties.width/l
       this.setData({
-        fontSize: this.properties.width / l
+        fontSize:   fontSize 
       })
     }
   }

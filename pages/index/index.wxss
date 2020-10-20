@@ -131,6 +131,9 @@
 .searchInput text{
   color: rgba(0,0,0,.4);
   font-size: 26rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .nbar{
@@ -143,15 +146,16 @@
 
 .position_button{
   margin-left: 20px;
-  width: 60px;
+  width: 70px;
   display: flex;
   align-self: center;
   float: left;
+  justify-content: space-between;
 }
 
 .position_button .text{
   display: inline-block;
-  width: 68rpx;
+  width: 108rpx;
   padding-right: 10rpx;
 }
 

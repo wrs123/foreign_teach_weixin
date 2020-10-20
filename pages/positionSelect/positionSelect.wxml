@@ -1,0 +1,56 @@
+<!--pages/positionSelect/positionSelect.wxml-->
+<navBar 
+  title="选择城市" 
+  fontColor="#333" 
+  backgroundColor="#fff" 
+  isback='true'
+  ></navBar>
+  <!--pages/address/address.wxml-->
+  <load wx:if="{{addressLoading}}"></load>
+<view 
+  class="searchLetter touchClass" 
+  style="top: {{navBarHeight+40}}px; height: calc(100vh - {{navBarHeight+40}}px);" wx:if="{{!addressLoading}}">
+  <view class="thishotText" bindtap="hotCity">
+    <view style="margin-top:0;">当前</view>
+    <!-- <view style="margin-top:0;">热门</view> -->
+  </view>
+  <view wx:for="{{searchLetter}}" style="color:#53985F;font-size:20rpx;" wx:key="index" data-letter="{{item.name}}" catchtouchend="clickLetter" >{{item.name}}</view>
+</view>
+<block wx:if="{{isShowLetter}}">
+  <view class="showSlectedLetter">
+    {{showLetter}}
+  </view>
+</block>
+<scroll-view scroll-y="true" style="height: calc(100vh - {{navBarHeight}}px" wx:if="{{!addressLoading}}" 
+ scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+  <view class='searchbox'>
+      <view class='input_box'>
+       <view>
+          <van-icon name="search" size="35rpx" style="float: left;padding: 14rpx 0;"></van-icon>  
+          <input placeholder='城市' onchange="seacrch_city" oninput="seacrch_city" onblur="seacrch_city" value='{{empty}}' bindtap='search_city'></input>
+       </view>
+        <view class='close'  bindtap='cancel_city'>×</view>
+      </view>
+      <view class='cancel'  bindtap='cancel_city'>取消</view>
+    </view>
+  <view id='address' hidden='{{address_show}}'>
+    <view class='current_city li_style'>当前：{{city}}</view>
+    <view class='all_city'>
+      <view class='li_style'>所有城市</view>    
+    </view>  
+    <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+      <view class="item_letter"  id="{{item.initial}}">{{item.initial}}</view>
+      <view class="item_city"  wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-cityCode="{{ct.area_code}}" data-city="{{ct.area_name}}" bindtap="bindCity">
+        {{ct.area_name}}
+      </view>
+    </view>
+  </view>
+  <view id='address_search' hidden='{{!address_show}}'>    
+    <view>
+      <view class="item_city"  wx:for="{{search_city}}" wx:for-item="ct" wx:key="{{ct.id}}" data-cityCode="{{ct.area_code}}" data-city="{{ct.area_name}}" bindtap="bindCity">
+        {{ct.area_name}}
+      </view>
+      <view class='noData' hidden='{{is_data}}'>暂无数据</view>
+    </view>
+  </view>
+</scroll-view>

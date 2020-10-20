@@ -1,0 +1,12 @@
+<!--components/loadWidget/loadingWidget.wxml-->
+<view class="model" style="height: calc(100vh - {{navHeigBarHeight}}px)">
+  <view class='dialog' style="top: {{(screenHeight-navHeigBarHeight)/2}}px">
+    <e-load-more
+      loading="true"
+      text="加载中..."
+      lineColor="#f2f2f2"
+      loadingColor="#5BC88D"
+      textSize="30"
+    ></e-load-more>
+  </view>
+</view>

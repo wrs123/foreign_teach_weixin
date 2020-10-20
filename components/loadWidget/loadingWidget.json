@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "e-load-more": "/components/easyui/load_more/load_more"
+  }
+}

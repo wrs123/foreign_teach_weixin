@@ -1,0 +1,8 @@
+<!--pages/searchPage/index.wxml-->
+<navBar 
+  title="" 
+  fontColor="#333" 
+  backgroundColor="#fff" 
+  isback='true'
+  isSearch="true"
+  ></navBar>

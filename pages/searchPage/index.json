@@ -1,6 +1,6 @@
 {
-  "component": true,
   "usingComponents": {
+    "navBar": "/components/navigationbar/navigation_bar",
     "van-icon": "@vant/weapp/icon/index"
   }
 }

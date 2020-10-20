@@ -3,11 +3,17 @@
 <view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight+30}}px">
   <view class="nbar" style="height:{{navBarHeight}}px; ">
     <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
-      <view class="position_button" style="height:{{menuHeight}}px;">
-        <view class="text"><auto-text fontWeight="bold" content="{{position.district.name}}" width="68"></auto-text></view>
+      <view class="position_button" style="height:{{menuHeight}}px;" bindtap="positionChoosePage">
+        <view class="text">
+          <auto-text 
+            content="{{position.city.name}}" 
+            width="108"
+            fontWeight="bold"
+            ></auto-text>
+        </view>
         <van-icon name="arrow-down" />
       </view>
-      <view class="searchInput" style="height: {{menuHeight-2}}px; margin-right: {{menuWidth+(menuRight*2)}}px; width: {{searchWidth-2}}px; margin-left: {{menuRight}}px;">
+      <view class="searchInput" style="height: {{menuHeight-2}}px; margin-right: {{menuWidth+(menuRight*2)}}px; width: {{searchWidth-2}}px; margin-left: {{menuRight}}px;" bindtap="jumpToSearchPage">
         <van-icon 
           name="search" 
           size="30rpx" 
@@ -39,7 +45,7 @@
     </view>
     <view class="course_list"> 
         <view class="course_list_title"> 
-          <text>课程内容{{index}}</text>
+          <text>课程内容</text>
         </view>
         <course-unit tabContantList="{{courseList}}" wx:for-index="index"></course-unit> 
     </view>

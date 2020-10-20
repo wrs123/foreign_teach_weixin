@@ -152,6 +152,7 @@
   height: 43rpx;
   width: 43rpx;
   margin-right: 20rpx;
+  color: #777;
 }
 
 .callback text{

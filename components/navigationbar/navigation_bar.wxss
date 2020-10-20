@@ -1,6 +1,6 @@
 .nbar{
-  width: calc(100vw - 50rpx);
-  padding-left: 50rpx;
+  width: calc(100vw - 15rpx);
+  padding-left: 15rpx;
   position: relative;
 }
 
@@ -8,6 +8,28 @@
   font-size: 35rpx;
 }
 
+.capsule-box, .backButton{
+  position: absolute;
+}
+
+.searchInput{
+  background-color: white;
+  border-radius: 50px; 
+  margin-left: 60rpx;
+  display: flex;
+  align-self: center;
+  border: .2rpx solid rgba(231,231,231,.7);
+}
+
+.searchInput text{
+  color: rgba(0,0,0,.4);
+  font-size: 26rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
 .capsule-box{
   position: absolute;
+  width: 100vw;
 }

@@ -1,6 +1,43 @@
-<view class="nbar" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px; ">
+<!-- 普通nav -->
+<view class="nbar" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px;display: {{isSearch? 'none': 'block'}};">
+  <view bindtap="backPage">
+    <view 
+      class="backButton"
+      style="bottom:{{menuBotton}}px;display: {{isback ? 'block': 'none'}}"
+      >
+      <van-icon 
+        name="arrow-left" 
+        size="40rpx" 
+      ></van-icon>
+    </view>
+    <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;left: {{isback ? 30: 15}}px;">
+      <text style="color: {{fontColor}}">{{title}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 搜索nav -->
+<view class="nbar" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px; display: {{isSearch? 'block': 'none'}};">
   <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
-    <text style="color: {{fontColor}}">{{title}}</text>
+    <view 
+      class="backButton"
+      bindtap="backPage"
+      style="display: {{isback ? 'flex': 'none'}}; height: {{menuHeight}}px;"
+      >
+      <van-icon 
+        name="arrow-left" 
+        size="40rpx" 
+      ></van-icon>
+    </view>
+    <view class="searchInput" style="height: {{menuHeight-2}}px; margin-right: {{menuWidth+(menuRight*2)}}px; width: {{searchWidth-2}}px; " bindtap="jumpToSearchPage">
+        <van-icon 
+          name="search" 
+          size="30rpx" 
+          color="rgba(0,0,0,.4)" 
+          custom-style="margin:0 10rpx 0 15rpx"
+          />
+        <text style="line-height: {{menuHeight-2}}px;">请输入搜索关键字</text>
+      </view>
   </view>
 </view>
 
