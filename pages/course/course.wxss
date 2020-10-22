@@ -80,3 +80,11 @@
 .cost{
   margin-top: 7px;
 }
+
+.loadModel{
+  position: absolute;
+  right: 0;
+  background: rgba(255,255,255,.6);
+  will-change: opacity;
+  transition: opacity .3s;
+}

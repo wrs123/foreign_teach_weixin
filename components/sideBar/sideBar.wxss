@@ -32,8 +32,8 @@
   text-align: center;
   font-size: 28rpx;
   color: #787B7E;
-  transition: color .3s, font-weight .3s;
-  will-change: color, font-weight;
+  transition: color .5s,;
+  will-change: color;
 }
 
 .active text{

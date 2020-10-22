@@ -3,6 +3,7 @@
     "navBar": "/components/navigationbar/navigation_bar",
     "sideBar": "/components/sideBar/sideBar",
     "course-unit": "/components/courseListUnit/courseListUnit",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "load": "/components/loadWidget/loadingWidget"
   }
 }

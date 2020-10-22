@@ -8,7 +8,7 @@
     data="{{courseDate}}"
   >
   </sideBar>
-  <scroll-view class="sideBody" scroll-y="true" style="width: {{contentWidth}}px">
+  <scroll-view class="sideBody" scroll-y="true" style="width: {{contentWidth}}px" scroll-top="{{scrollTop}}">
     <view class='courseItem' wx:for="{{courseList}}">
       <image class="img" src="" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
       <view class="text">
@@ -26,6 +26,9 @@
       </view>
     </view> 
   </scroll-view>
+  <view class="loadModel" style="width: {{contentWidth}}px; z-index: {{modelZIndex}}; opacity: {{isLoading?1:0}}; height: calc(100vh - {{navBarHeight}}px)">
+    <load wx:if="{{isLoading}}"></load>
+  </view>
 </view>
 
 
