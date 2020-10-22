@@ -1,0 +1,42 @@
+/* components/sideBar/sideBar.wxss */
+.sideBar{
+  /* height: 100%; */
+  background-color: #F7FBFE;
+  border-top-right-radius: 5px;
+  position: relative;
+}
+
+.bar{
+  background: #5BC88D;
+  width: 7rpx;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  border-top-right-radius: 5rpx;
+  border-bottom-right-radius: 5rpx;
+  transition: top .3s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  will-change: top;
+}
+
+.sideItem{
+  text-align: center;
+  z-index: 1;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideItem text{
+  text-align: center;
+  font-size: 28rpx;
+  color: #787B7E;
+  transition: color .3s, font-weight .3s;
+  will-change: color, font-weight;
+}
+
+.active text{
+  color: #5BC88D;
+  font-weight: bold;
+}

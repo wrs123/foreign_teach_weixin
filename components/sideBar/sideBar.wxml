@@ -1,0 +1,14 @@
+<!--components/sideBar/sideBar.wxml-->
+<view class="sideBar" style="height: {{screenHeight-navBarHeight}}px; width: {{widgetWidth}}px;"> 
+  <view 
+    class="sideItem {{index == itemIndex ? 'active': ''}}" 
+    wx:for="{{data}}"
+    data-id="{{item.id}}"
+    data-index="{{index}}"
+    bindtap="onItemTap"
+    style="height:{{itemHeight}}px"
+  >
+    <text>{{item.name}}</text>
+  </view>
+  <view class="bar" style="top: {{itemBarTop}}px; height: {{barHeight}}px"></view>
+</view>

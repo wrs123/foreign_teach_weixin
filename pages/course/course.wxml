@@ -1,17 +1,31 @@
 <!--pages/course/course.wxml-->
-<view style="overflow-y: auto;">
-  <navBar title="全部课程" fontColor="#333" backgroundColor="#fff"></navBar>
-  <view class="page">
-    <van-tabs 
-      active="{{ active }}" 
-      bind:change="onChange" 
-      color="#5BC88D"
-      sticky
-      >
-      <van-tab title="小学">0</van-tab>
-      <van-tab title="初中">1</van-tab>
-      <van-tab title="高中">2</van-tab>
-      <van-tab title="大学">3</van-tab>
-    </van-tabs>
-  </view>
+<navBar title="全部课程" fontColor="#333" backgroundColor="#fff" bottomBorder="true">
+
+</navBar>
+<view class="page" style="height: calc(100vh - {{navBarHeight}}px)">
+  <sideBar 
+    bind:onchange="onTabChange"
+    data="{{courseDate}}"
+  >
+  </sideBar>
+  <scroll-view class="sideBody" scroll-y="true" style="width: {{contentWidth}}px">
+    <view class='courseItem' wx:for="{{courseList}}">
+      <image class="img" src="" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
+      <view class="text">
+        <text class="title">mysql从入门到入土</text>
+        <view class="case">
+            <view class="pcount">
+              <van-icon name="user-o" size="22rpx"/>
+              <text>171</text>
+            </view>
+            <text class="ccount">11人评价</text>
+        </view>
+        <view class="cost">
+          <text>¥999</text>
+        </view>
+      </view>
+    </view> 
+  </scroll-view>
 </view>
+
+

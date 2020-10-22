@@ -6,7 +6,7 @@
 }
 
 .body{
-  background-color: #F3F3F3;
+  background-color: #F7FBFE;
   width: 100%;
   display: block;
 }

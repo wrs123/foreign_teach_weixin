@@ -17,7 +17,7 @@
 </view>
 
 <!-- 搜索nav -->
-<view class="nbar" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px; display: {{isSearch? 'block': 'none'}};">
+<view class="nbar {{bottomBorder ? 'bottomBorder': ''}}" style="background-color: {{backgroundColor}}; height:{{navBarHeight}}px; display: {{isSearch? 'block': 'none'}};">
   <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
     <view 
       class="backButton"

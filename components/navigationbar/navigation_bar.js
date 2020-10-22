@@ -21,6 +21,10 @@ Component({
     isSearch: {
       type: Boolean,
       value: false
+    },
+    bottomBorder: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
