@@ -84,7 +84,7 @@
 .loadModel{
   position: absolute;
   right: 0;
-  background: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.9);
   will-change: opacity;
   transition: opacity .3s;
 }

@@ -27,7 +27,7 @@
     </view> 
   </scroll-view>
   <view class="loadModel" style="width: {{contentWidth}}px; z-index: {{modelZIndex}}; opacity: {{isLoading?1:0}}; height: calc(100vh - {{navBarHeight}}px)">
-    <load wx:if="{{isLoading}}"></load>
+    <load wx:if="{{isLoading}}" textColor="#323232"></load>
   </view>
 </view>
 

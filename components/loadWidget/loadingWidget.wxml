@@ -7,6 +7,7 @@
       lineColor="#f2f2f2"
       loadingColor="#5BC88D"
       textSize="30"
+      textColor="{{textColor}}"
     ></e-load-more>
   </view>
 </view>
