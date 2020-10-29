@@ -82,5 +82,12 @@ Page({
   },
   loadCourseList: function(id){
 
+  },
+  jumpToDetailsPage: function(e){
+    let courseId = e.currentTarget.dataset.courseid
+
+    wx.navigateTo({
+      url: '../courseDetails/courseDetails?course='+courseId
+    })
   }
 });

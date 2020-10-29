@@ -27,6 +27,10 @@ Component({
       type: String,
       value: '#333333'
     },
+    fontWeight: {
+      type: 'String',
+      value: 'bold'
+    },
     textSize: {
       type: String,
       value: '30'
@@ -34,6 +38,10 @@ Component({
     selectColor: {
       type: String,
       value: '#FE9036'
+    },
+    tabPosition: {
+      type: String,
+      value: 'start'
     },
     selected: {
       type: String,
@@ -51,7 +59,7 @@ Component({
       observer: function (newVal) {
         if (this.data.theme == themes.smallBar) {
           this.setData({
-            bottom: this.data.height / 2 - this.data.textSize,
+            bottom: this.data.height / 2 - this.data.textSize+1,
             scrollStyle: ''
           })
         }

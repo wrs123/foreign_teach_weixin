@@ -1,0 +1,63 @@
+<!--pages/courseDetails/courseDetails.wxml-->
+<view class="navbar {{navShadow ? 'navShadow': ''}}" style="height: {{navBarHeight}}px; background-color: {{barbackground}};">
+  <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
+    <view class="backButton" style="height: {{menuHeight}}px; width: {{menuHeight}}px" bindtap="reurnPage">
+      <van-icon name="arrow-left" size="20" color="{{barColor}}"/>
+    </view>
+    <view class="title" style="width: {{titleWidth}}px">
+      <text style="color: {{barColor}}">mysql入门到入土</text>
+    </view>
+  </view>
+</view>
+<view class="body">
+  <view class="bannerbk" style="width: 100vw; height: {{screenWidth/16*11}}px;">
+    <image 
+      src="../../images/banner1.jpg" 
+      mode=""
+      style="width: 100vw; height: {{bannerHeight}}px;"
+      class="banner"
+    ></image>
+  </view>
+  <view class="head" id="headTitle">
+    <view class="cost">
+      <view>¥<text>999</text></view>
+    </view>
+    <view class="title">
+      算法与数据结构体系课
+    </view>
+    <view class="case">
+      <view class="tag">
+        <van-icon name="underway" size="11px" />
+        <text>50小时</text>
+      </view>
+      <view class="tag">
+        <van-icon name="manager" size="11px"/>
+        <text>854人学</text>
+      </view>
+      <view class="tag">
+        <van-icon name="like" size="11px"/>
+        <text>90%好评</text>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="{{tabTip ? 'tabTip':''}}" style="top: {{tabTip ? navBarHeight : 0}}px">
+      <e-tabs
+    items='{{tabs}}'
+    selectColor='#5BC88D'
+    theme='smallBar' 
+    bind:itemtap="onTbaChange" 
+    tabPosition="center"   
+    cus="tab"
+    fontWeight="normal"
+    selectFontWeight="bold"
+    textColor="#383B3E"
+  />
+    </view>
+    <view class="tabContent">      
+      <text>
+        简介：2020升级版来了，课程将持续更新....本课程从最基本的概念开始讲起，步步深入，带领大家学习HTML(5)、CSS(3)样式基础知识，了解各种常用标签的意义以及基本用法，后半部分教程主要讲解CSS(3)样式代码添加，为后面的案例课程打下基础。
+      </text>
+    </view>
+  </view>
+</view>

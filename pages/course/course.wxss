@@ -50,7 +50,7 @@
   display: flex;
   color: #9B9B9B;
   align-items: center;
-  margin-top: 7px;
+  margin-top: 3px;
 
 }
 
@@ -78,7 +78,7 @@
 }
 
 .cost{
-  margin-top: 7px;
+  /* margin-top: 3px; */
 }
 
 .loadModel{

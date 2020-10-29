@@ -9,7 +9,7 @@
   >
   </sideBar>
   <scroll-view class="sideBody" scroll-y="true" style="width: {{contentWidth}}px" scroll-top="{{scrollTop}}">
-    <view class='courseItem' wx:for="{{courseList}}">
+    <view class='courseItem' wx:for="{{courseList}}" bindtap="jumpToDetailsPage" data-courseId="0">
       <image class="img" src="" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
       <view class="text">
         <text class="title">mysql从入门到入土</text>
