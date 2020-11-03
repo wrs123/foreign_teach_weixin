@@ -14,6 +14,7 @@ export default {
         'name': '--'
       }
     },
+    globalData: {},
     mapKey: 'KSOBZ-RWCCS-O6TOX-6MIDA-WVV4O-4PBFZ'
   }
 }

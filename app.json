@@ -8,7 +8,8 @@
     "pages/logs/logs",
     "pages/positionSelect/positionSelect",
     "pages/searchPage/index",
-    "pages/courseDetails/courseDetails"
+    "pages/courseDetails/courseDetails",
+    "pages/login/login"
   ],
   "window": {
     "navigationStyle": "custom",

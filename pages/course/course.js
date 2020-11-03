@@ -1,5 +1,6 @@
 //获取应用实例
 var app = getApp();
+import Api from '../../utils/api'
 
 Page({
   data: {
@@ -35,18 +36,39 @@ Page({
   onLoad(event){
     this.changeNavType()
     let that = this
-    setTimeout(function(){
-      that.setData({
-        isLoading: false
-      })
-      setTimeout(function(){
+    // setTimeout(function(){
+    //   that.setData({
+    //     isLoading: false
+    //   })
+    //   setTimeout(function(){
+    //     that.setData({
+    //       modelZIndex: -1
+    //     })
+    //   },300)
+    // },2000),
+    //获取课程列表
+    this.getCourseList();
+    
+
+    
+  },
+  getCourseList(){
+    let type = this.data.courseDate[this.data.active]
+    let that = this;
+
+    Api.getCourseList(type, 
+      function(e){
         that.setData({
-          modelZIndex: -1
-        })
-      },300)
-    },2000)
-    
-    
+              isLoading: false,
+              courseList: e.resultList
+            })
+            setTimeout(function(){
+              that.setData({
+                modelZIndex: -1
+              })
+            },300)
+      },
+        function(e){console.log()});
   },
   onTabChange: function(e){
     console.log(e);
@@ -68,6 +90,8 @@ Page({
         })
       },300)
     },2000)
+
+    
     
   },
   changeNavType: function(){

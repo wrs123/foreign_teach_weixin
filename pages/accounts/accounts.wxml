@@ -1,11 +1,11 @@
 <!--pages/accounts/accounts.wxml-->
 <navBar title="我的" fontColor="#fff" backgroundColor="#5BC88D"></navBar>
-<view class="body" style="height: {{screenHeight-navBarHeight}}px">
+<view class="body" style="height: calc(100vh - {{navBarHeight}}px)">
   <view class="avatar-bg"></view>
   <view class="content" style="top: {{navBarHeight}}px;">
       <view class="avatar">
-        <image src="../../images/avatar.jpeg"></image>
-        <text>顾家明</text>
+        <image src="{{avatarUrl}}" style="background-color: #f7f7f7;"></image>
+        <text>{{nickName}}</text>
       </view>
       <view class="my-order block">
         <view class="title">

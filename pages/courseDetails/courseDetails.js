@@ -100,6 +100,12 @@ create(store, {
         this.setData({
           barbackground: 'rgba(255,255,255,'+position*offset+')'
         })
+      }else{
+        if(this.data.barbackground != 'rgba(255,255,255,1)'){
+          this.setData({
+            barbackground: 'rgba(255,255,255,1)'
+          })
+        } 
       }
     }
   },

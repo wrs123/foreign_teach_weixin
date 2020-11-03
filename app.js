@@ -1,12 +1,23 @@
+
 //app.js
 App({
   onLaunch: function () {
     //获取nav高度
     this.setNavBarInfo()
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    //判断用户是否登陆
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+          
+          //调用API从本地缓存中获取数据
+          console.log(res.data)
+      },
+      fail: function(e){
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+      }
+    })
   },
   getUserInfo:function(cb){
     var that = this

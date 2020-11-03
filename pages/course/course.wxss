@@ -44,6 +44,7 @@
   color: #323232!important;
   font-weight: bold;
   font-size: 28rpx;
+  max-lines: 2;
 }
 
 .courseItem .case{
