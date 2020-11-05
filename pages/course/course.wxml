@@ -8,7 +8,7 @@
     data="{{courseDate}}"
   >
   </sideBar>
-  <scroll-view class="sideBody" scroll-y="true" style="width: {{contentWidth}}px" scroll-top="{{scrollTop}}">
+  <scroll-view class="sideBody" wx:if="{{loadType}}" scroll-y="true" style="width: {{contentWidth}}px" scroll-top="{{scrollTop}}">
     <view class='courseItem' wx:for="{{courseList}}" bindtap="jumpToDetailsPage" data-courseId="0" data-id="{{item.id}}">
       <image class="img" src="" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
       <view class="text" style="width:{{contentWidth-imageWidth}}px">
@@ -26,6 +26,10 @@
       </view>
     </view> 
   </scroll-view>
+  <view class="errP" style="width: {{contentWidth}}px" wx:if="{{!loadType}}">
+    <text>加载失败了</text>
+    <button class="mini-btn" type="primary" size="mini" bindtap="loadCourseList">刷新</button>
+  </view>
   <view class="loadModel" style="width: {{contentWidth}}px; z-index: {{modelZIndex}}; opacity: {{isLoading?1:0}}; height: calc(100vh - {{navBarHeight}}px)">
     <load wx:if="{{isLoading}}" textColor="#323232"></load>
   </view>

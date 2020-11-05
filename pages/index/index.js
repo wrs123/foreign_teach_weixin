@@ -44,11 +44,11 @@ create(store, {
     screenWidth: app.globalData.screenWidth
   },
   onLoad: function () {
+    console.log("主页加载")
     //获取当前位置P
     this.getLocation()
     //判断滚动
     this.onPageScroll()
-  
   },
   onShow: function(){
     console.log("主页显示："+this.store.data.position.city.name);

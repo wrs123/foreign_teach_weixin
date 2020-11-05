@@ -1,10 +1,11 @@
 .header {
-    margin: 90rpx 90rpx 150rpx 50rpx;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    width: 650rpx;
-    height: 300rpx;
-    line-height: 450rpx;
+  margin: 90rpx 90rpx 50rpx 50rpx;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+  padding-bottom: 100rpx;
 }
  
 .header image {

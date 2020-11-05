@@ -3,6 +3,12 @@
  */
   const host  = "http://127.0.0.1:8081"
 
+  let resultParam = {
+    statusCode: 0,
+    message: '',
+    data: {}
+  }
+
  /**
  * promise请求
  * 参数：参考wx.request
@@ -27,7 +33,7 @@ function request(options = {}) {
 }
 
 
- function getCourseList(type, success, fail){
+ function getCourseList(type, success){
 
   request({
     url: host+'/app/course/list',
@@ -37,14 +43,16 @@ function request(options = {}) {
     method: 'GET'
   })
     .then((res) => {
-      if(res.statusCode == 200){
-        success(res.data)
-      }else{
-        success(res)
-      }
+      resultParam.data = res.data
+      resultParam.statusCode = res.statusCode
+      resultParam.message = res.errMsg
+      success(resultParam)
     })
     .catch((err) => {
-      fail(err)
+      resultParam.data = ''
+      resultParam.statusCode = 111
+      resultParam.message = err.errMsg
+      success(resultParam)
     });
  }
 
