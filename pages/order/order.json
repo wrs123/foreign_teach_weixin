@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navBar": "/components/navigationbar/navigation_bar",
+    "e-tabs": "/components/easyui/senior/tabs/tabs",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-loading": "@vant/weapp/loading/index"
+  }
+}

@@ -1,6 +1,7 @@
 // pages/courseDetails/courseDetails.js
 import create from '../../utils/create'
 import store from '../../store'
+import Api from '../../utils/api'
 
 //获取应用实例
 var app = getApp();
@@ -21,27 +22,56 @@ create(store, {
     screenWidth: app.globalData.screenWidth,
     barColor: '#fff',
     barbackground: 'rgba(255,255,255,0)',
-    barType: 'dark',
+    barType: '',
     bannerHeight: app.globalData.screenWidth/16*11,
     tabs: ['简介', '评价'],
     tabTip: false,
     headTitleHeight: 0,
-    tabBarTop: 0
+    tabBarTop: 0,
+    courseId: '',
+    learnCount: NaN,
+    praiseRate: NaN,
+    loadErr: false,
+    isLoad: true,
+    classTime: NaN,
+    title: '-----',
+    price: NaN,
+    description: '--------',
+    cover: '../../images/banner1.jpg',
+    index: 0,
+    hasComment: false,
+    commentList: [],
+    loadComment: false,
+    loadCommentFalse: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    this.changeNavType('light')
+    
+    let data = options.data
+    data = JSON.parse(data)
+    console.log(data)
+    this.changeNavType('dark')
+    this.setData({
+      courseId: data.id,
+      classTime: data.class_time,
+      title: data.name,
+      price: data.price,
+      description: data.description,
+      cover: data.cover
+    })
+    //获取课程详情
+    this.getCourse()
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getHeadTitleHeight()
+    
   },
   //修改状态栏颜色
   changeNavType: function(type){
@@ -63,10 +93,44 @@ create(store, {
       });
       this.setData({
         barType: type,
-        barColor: type == 'light' ? '#fff' : '#333'
+        barColor: type == 'light' ? '#fff' : '#333',
       })
     }
     
+  },
+  onTbaChange: function(e){
+    console.log(e)
+    let index = e.detail.currentTarget.dataset.index
+
+    this.setData({
+      index: index
+    })
+    if(!this.data.hasComment){
+      this.getCommentList(true)
+    }
+  },
+  getCommentList: function(first){
+    this.setData({
+      loadComment: true
+    })
+    let data = {
+      courseId: this.data.courseId
+    }
+    let that = this
+
+    Api.getCommentList(data, function(res){
+      console.log(res);
+      if(res.code == 200 && res.status == "success"){
+        if(first){
+          that.setData({
+            hasComment: true
+          })
+        }
+        that.setData({
+          commentList: res.result.resultList
+        })
+      }
+    })
   },
   reurnPage: function(){
     wx.switchTab({
@@ -80,6 +144,13 @@ create(store, {
       let headHeight =  bannerHeight + this.data.headTitleHeight-this.data.navBarHeight+15
       let position = e.scrollTop;
       let offset = 1 / (bannerHeight-this.data.navBarHeight)
+      let that = this
+
+      wx.createSelectorQuery().select('#tabBar').boundingClientRect(function(rect){
+        that.setData({
+          tabBarHeight: rect.height
+        })
+      }).exec()
       
       if(position <= 30){
         this.changeNavType('light')
@@ -110,6 +181,40 @@ create(store, {
     }
   },
   /**
+   * 获取课程详情
+   */
+  getCourse: function(){
+    this.setData({
+      isLoad: true
+    })
+    let that = this
+
+    let data = {
+      courseId: this.data.courseId
+    }
+   Api.getCourseDetails(data, function(e){
+     let res = e
+     if(res.code == 200 && res.status == "success"){
+       let datas = e.result
+
+       that.setData({
+        praiseRate: datas.praiseRate,
+        learnCount: datas.learnCount,
+        isLoad: false,
+        isErr: false
+       })
+       that.changeNavType('light')
+       that.getHeadTitleHeight()
+     }else{
+      that.setData({
+        loadErr: true,
+        isLoad: false
+      })
+      that.getHeadTitleHeight()
+     }
+   })
+  },
+  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -123,26 +228,6 @@ create(store, {
       })
     }).exec()
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -151,10 +236,5 @@ create(store, {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  }
 })

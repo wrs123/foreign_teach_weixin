@@ -14,7 +14,7 @@ Component({
       observer: function (newVal) {
         if (newVal && newVal.length < 5) {
           this.setData({
-            itemWidth: (750 / newVal.length) - 60
+            itemWidth: (750 / newVal.length) - (this.data.barType  == "small" ? 60 : 0)
           })
         }
       }
@@ -23,6 +23,10 @@ Component({
       type: String,
       value: '50'
     },
+    background: {
+      type: String,
+      value: 'white'
+    },
     textColor: {
       type: String,
       value: '#333333'
@@ -30,6 +34,10 @@ Component({
     fontWeight: {
       type: 'String',
       value: 'bold'
+    },
+    barType: {
+      type: String,
+      value: 'small'
     },
     textSize: {
       type: String,

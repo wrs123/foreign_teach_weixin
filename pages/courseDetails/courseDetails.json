@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
-    "e-tabs": "/components/easyui/senior/tabs/tabs"
+    "e-tabs": "/components/easyui/senior/tabs/tabs",
+    "load": "/components/loadWidget/loadingWidget",
+    "commmentList": "/components/courseListUnit/courseListUnit"
   }
 }

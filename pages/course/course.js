@@ -1,8 +1,10 @@
+import create from '../../utils/create'
+import store from '../../store'
+
 //获取应用实例
 var app = getApp();
 import Api from '../../utils/api'
-
-Page({
+create(store,{
   data: {
     active: 1,
     navBarHeight: app.globalData.navBarHeight,
@@ -32,7 +34,8 @@ Page({
     imageHeight: (app.globalData.screenWidth * 0.75 * .35/16)*11,
     isLoading: true,
     scrollTop: 0,
-    modelZIndex: 1
+    modelZIndex: 1,
+    typeId: 0
   },
   onLoad(event){
     this.changeNavType()
@@ -48,19 +51,19 @@ Page({
     //   },300)
     // },2000),
     //获取课程列表
-    this.loadCourseList(0);
+    this.loadCourseList();
     
 
     
   },
-  loadCourseList(type){
+  loadCourseList(){
     let that = this;
+    let type = this.data.typeId
+    //开始加载
+    this.showLoad()
 
-    this.setData({
-      isLoading: false,
-    })
     console.log("start load===type:"+type)
-
+    //  网络请求
     Api.getCourseList(type, 
       function(e){
         console.log(e)
@@ -68,9 +71,10 @@ Page({
           that.setData({
             courseList: e.data.resultList
           })
+          //结束加载
          that.hideLoad(true)
         }else{
-        
+          //结束加载
           that.hideLoad(false)
           wx.showToast({
             title: e.message,
@@ -101,9 +105,12 @@ Page({
   onTabChange: function(e){
     console.log(e);
     let id = e.detail.id
+    this.setData({
+      typeId: id
+    })
     let that = this
 
-    this.loadCourseList(id)
+    this.loadCourseList()
 
     // this.showLoad()
     // setTimeout(function(){
@@ -132,10 +139,11 @@ Page({
     });
   },
   jumpToDetailsPage: function(e){
-    let courseId = e.currentTarget.dataset.courseid
+    let data = e.currentTarget.dataset.data
+    data = JSON.stringify(data)
 
     wx.navigateTo({
-      url: '../courseDetails/courseDetails?course='+courseId
+      url: '../courseDetails/courseDetails?data='+data
     })
   }
-});
+})

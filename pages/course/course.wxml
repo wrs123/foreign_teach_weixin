@@ -9,8 +9,8 @@
   >
   </sideBar>
   <scroll-view class="sideBody" wx:if="{{loadType}}" scroll-y="true" style="width: {{contentWidth}}px" scroll-top="{{scrollTop}}">
-    <view class='courseItem' wx:for="{{courseList}}" bindtap="jumpToDetailsPage" data-courseId="0" data-id="{{item.id}}">
-      <image class="img" src="" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
+    <view class='courseItem' wx:for="{{courseList}}" bindtap="jumpToDetailsPage" data-data="{{item}}" data-id="{{item.id}}">
+      <image class="img" src="{{item.cover}}" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
       <view class="text" style="width:{{contentWidth-imageWidth}}px">
         <text class="title">{{item.name}}</text>
         <view class="case">

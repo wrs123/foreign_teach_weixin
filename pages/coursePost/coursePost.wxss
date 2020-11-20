@@ -1,0 +1,176 @@
+/* pages/coursePost/coursePost.wxss */
+
+page{
+  background-color: #F7FBFE;
+}
+
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: #fff;
+  border-top: .7px solid rgba(213,213,213,.8);
+  z-index: 5;
+}
+
+.bottom .postButton{
+  background-color: #1aad19;
+  width: calc(100vw - 100px);
+  height: 36px;
+  margin: auto;
+  margin-top: 7px;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+.bottom .postButton:active{
+  background-color: #179b16;
+  color: rgba(255,255,255,.6);
+}
+
+.form-item{
+  /* margin: 10px; */
+}
+
+.form-item .item-title{
+  margin: 10px;
+  margin-left: 26px;
+  display: inline-block;
+  color: rgba(144,155,160,1);
+  font-size: 13px;
+}
+
+.form-item .item-input{
+  background-color: #fff;
+}
+
+.van-radio {
+  display: inline-flex!important;
+}
+
+van-radio-group{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.van-radio__label {
+  font-size: 14px;
+}
+
+.courseName .van-field__body{
+  margin-left: 10px;
+}
+
+.form_bar{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.avatatUpload{
+  /* width: 100%; */
+  background-color: #fff;
+  display: flex;
+  padding: 16px;
+  position: relative;
+}
+
+.uploadButton{
+  width: 100%;
+  height: 100px;
+  border: 1px dashed rgba(144,155,160,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  /* flex-direction: column; */
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.uploadButton text{
+  color: rgba(144,155,160,1);
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+.uploadButton:active{
+  background-color: rgba(144,155,160,.1);
+}
+
+.loading{
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  width: calc(100vw - 52px);
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(144,155,160,.3);
+  border: 1px solid rgba(144,155,160,.3);
+}
+
+.reload{
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  width: calc(100vw - 52px);
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(144,155,160,.8);
+  border: 1px solid rgba(144,155,160,.8);
+}
+
+
+.reload .upErrItem{
+  display: flex;
+  height: 100%;
+  width: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reload text{
+  color: #fff;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+/* .van-field__body--textarea{
+  height: 200px!important;
+  min-lins
+} */
+
+.wrapper{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.postLoad .cont{
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cont text{
+  font-size: 14px;
+  color: #777;
+}

@@ -102,10 +102,87 @@
   width: 100vw;
   box-shadow: 0 0 5px 0 #a7a7a7;
   transition: box-shadow .3s;
+  z-index: 1;
 }
 
 .tabContent{
-  height: 900px;
+  /* height: 900px; */
   padding: 0 15px;
 }
 
+.reserve{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: white;
+  border: 1px solid rgba(144,155,160,.3);
+}
+
+.reserve .reserveButton{
+  background-color: #1aad19;
+  width: calc(100vw - 50px);
+  height: 36px;
+  margin: auto;
+  margin-top: 7px;
+  text-align: center;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+.reserve .reserveButton:active{
+  background-color: #179b16;
+  color: rgba(255,255,255,.6);
+}
+
+.commentList{
+  padding: 5px; 
+  margin-bottom: 50px;
+}
+
+.commentUnit{
+  padding: 10px 0;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.commentUnit .title .avatar image{
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  margin-right: 5px
+}
+
+.commentUnit .title .avatar{
+  display: flex;
+  align-items: center;
+}
+
+.commentUnit .title .avatar text{
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.commentUnit .title{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.commentUnit .content{
+  margin-left: 30px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.commentUnit .data{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  font-size: 12px;
+  color: #BCBCBC;
+}

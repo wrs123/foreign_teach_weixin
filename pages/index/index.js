@@ -51,7 +51,7 @@ create(store, {
     this.onPageScroll()
   },
   onShow: function(){
-    console.log("主页显示："+this.store.data.position.city.name);
+    console.log(this.store.data.position.city);
     wx.showToast({
       title: "主页显示:"+this.store.data.position.city.name,
       icon: 'none',
@@ -98,10 +98,11 @@ create(store, {
         console.log(location)
         //更新位置数据
         let result = location.result.ad_info
+        
         that.store.data.position.province.name = result.province
         that.store.data.position.province.code = '000'
         that.store.data.position.city.name = result.city.substring(0, result.city.length - 1)
-        that.store.data.position.city.code = result.city_code
+        that.store.data.position.city.code = result.city_code.slice(3)
         that.store.data.position.district.name = result.district
         that.store.data.position.district.code = result.adcode
         that.update()

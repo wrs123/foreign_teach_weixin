@@ -229,6 +229,7 @@ create(store, {
     wx.setStorageSync('currentcity', e.currentTarget.dataset.city)
 
     this.store.data.position.city.name = e.currentTarget.dataset.city
+    this.store.data.position.city.code = e.currentTarget.dataset.citycode
     this.update()
 　　// 回到首页
     wx.switchTab({

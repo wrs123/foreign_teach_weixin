@@ -1,0 +1,25 @@
+<!--pages/order/order.wxml-->
+<navBar title="我的订单" fontColor="#333" backgroundColor="#F1F2F3" bottomBorder="true" isback="true">
+</navBar>
+<e-tabs
+    items='{{statusTabs}}'
+    selectColor='#5BC88D'
+    bind:itemtap="onTbaChange"  
+    height="90"  
+    barType="normal"
+    background="#F1F2F3"
+  />
+<view class="body" style="height: calc(100vh - {{navBarHeight+45}}px)">
+  <view class="loadWidget" wx:if="{{isLoad}}">
+    <van-loading size="24px">加载中...</van-loading>
+  </view>
+  <van-empty description="什么也没有啊～" wx:if="{{!isLoad&&courseList.length == 0}}"/>
+  <view style="height: 10px;"></view>
+  <view class="courseUnit" wx:if="{{!isLoad&&courseList.length != 0}}" wx:for="{{courseList}}">
+    <view class="courseInfo">
+      <image src="{{item.cover}}" alt="" />
+      <text>{{item.name}}</text>
+    </view>
+    
+  </view>
+</view>

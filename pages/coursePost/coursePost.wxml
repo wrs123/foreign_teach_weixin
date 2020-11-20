@@ -1,0 +1,138 @@
+<!--pages/coursePost/coursePost.wxml-->
+<view style="position: fixed; z-index: 10;top: 0;">
+  <navBar 
+  title="发布课程" 
+  fontColor="#333" 
+  backgroundColor="#fff"
+  isback="true"
+  ></navBar>
+</view>
+<view class="body" style="margin-top: {{navBarHeight}}px">
+  <!-- <button type="primary" bindtap="upload">点击上传</button> -->
+  <view class="form-item">
+      <text class="item-title">课程名</text>
+      <view class="item-input courseName">
+        <van-cell-group>
+          <van-field
+            model:value="{{name}}"
+            placeholder="请输入课程名"
+            label="¥"
+            clickable="true"
+          />
+        </van-cell-group>
+      </view>
+    </view>  
+    <view class="form-item">
+      <text class="item-title">课程类型</text>
+      <view class="item-input" style="padding: 0 10px;" bind:tap="openTypeAction">
+        <van-cell title="{{typeName}}" is-link value="点击选择" />
+      </view>
+    </view>
+    <view class="form_bar">
+      <view class="form-item" style="width: calc(50vw - 1px);">
+        <text class="item-title">价格</text>
+        <view class="item-input" style="padding: 0 10px;">
+          <van-cell-group>
+            <van-field
+              model:value="{{price}}"
+              placeholder="请输入价格"
+              label="¥"
+              clickable="true"
+              bind:input="handleInputPrice"
+            />
+          </van-cell-group>
+        </view>
+      </view> 
+      <view style="border-left: 1px solid rgba(144,155,160,.2);height: 44px;"></view>
+    <view class="form-item" style="width: 50vw;">
+      <text class="item-title">总课时</text>
+      <view class="item-input" style="padding: 0 10px;">
+        <van-cell-group>
+            <van-field
+              model:value="{{classTime}}"
+              placeholder="请输入课时"
+              label="¥"
+              clickable="true"
+              bind:input="handleInputCourseTime"
+            />
+          </van-cell-group>
+      </view>
+    </view> 
+    </view>
+    <view class="form-item">
+      <text class="item-title">封面</text>
+      <view class="item-input" style="padding: 0 10px;">
+        <view class="avatatUpload">
+          <view class="uploadPic uploadButton" wx:if="{{imageUrl}}" bindtap="upload">
+            <image src="{{imageUrl}}" style="height: 100px;" mode="aspectFit"></image>
+          </view>
+          <view class="uploadButton" bindtap="upload" wx:if="{{!imageUrl}}">
+            <van-icon name="photo-o" color="rgba(144,155,160,1)" size="18"/>
+            <text>点击上传图片</text>
+          </view>
+          <view class="loading" wx:if="{{fileUploadStart}}">
+            <van-loading type="circular" color="#fff"/>
+          </view>
+          <view class="reload" wx:if="{{uploadFalse}}" bindtap="upload">
+            <view class="upErrItem">
+              <van-icon name="replay" color="#fff" size="20"/>
+              <text>点击重试</text>
+            </view>
+            <view class="upErrItem"> 
+              <van-icon name="close" color="#fff" size="20"/>
+              <text>取消</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view> 
+    <view class="form-item">
+      <text class="item-title">授课城市</text>
+      <view class="item-input" style="padding: 0 10px;">
+        <van-cell title="{{areaName}}" is-link value="点击选择" />
+      </view>
+    </view>  
+    <view class="form-item">
+      <text class="item-title">课程介绍</text>
+      <view class="item-input" style="padding: 0 10px;">
+        <van-cell-group>
+            <van-field
+              model:value="{{description}}"
+              placeholder="请输入课程描述"
+              type="textarea"
+              clickable="true"
+              autosize
+            />
+          </van-cell-group>
+      </view>
+    </view>   
+    <view style="height: 70px; display: flex;">
+
+    </view>
+    <van-action-sheet
+          show="{{ showAction }}"
+          actions="{{ typeActions }}"
+          cancel-text="取消"
+          description="请选择课程类型"
+          close-on-click-overlay="true"
+          bind:close="onTypeActionClose"
+          bind:select="onTypeActionSelect"
+          bind:cancel="onTypeActionClose"
+        />  
+</view>
+<view class="bottom">
+  <view class="postButton" bindtap="postCourse">
+    立即发布
+  </view>
+</view>
+<view class="postLoad">
+  <van-overlay show="{{posting}}" z-index="30">
+    <view class="wrapper">
+      <view class="cont">
+        <van-loading /> 
+        <text>发布中～</text>
+      </view>
+    </view>
+  </van-overlay>
+</view>
+

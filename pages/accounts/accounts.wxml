@@ -4,42 +4,47 @@
   <view class="avatar-bg"></view>
   <view class="content" style="top: {{navBarHeight}}px;">
       <view class="avatar">
-        <image src="{{avatarUrl}}" style="background-color: #f7f7f7;"></image>
+        <image src="{{avatarUrl}}" style="background-color: #f7f7f7;" wx:if="{{isLogIn}}"></image>
+        <button class="avatLog" open-type="getUserInfo" style="background-color: #f7f7f7;" wx:if="{{!isLogIn}}" lang="zh_CN" bindgetuserinfo="login">
+          <image src="{{avatarUrl}}"></image>
+        </button>
         <text>{{nickName}}</text>
       </view>
       <view class="my-order block">
+        <view class="modal" wx:if="{{!isLogIn}}"></view>
         <view class="title">
           <text>我的预约</text>
         </view>
         <view class="my-button-bar">
-        <view class="bar-child">
+        <view class="bar-child" data-type="0" bindtap="jumpPage">
           <image src="../../images/accountbook.png"></image>
           <text>订单</text>
         </view>
-        <view class="bar-child">
+        <view class="bar-child" data-type="1" bindtap="jumpPage">
           <image src="../../images/file-exception.png"></image>
           <text>待确认</text>
         </view>
-        <view class="bar-child">
+        <view class="bar-child" data-type="2" bindtap="jumpPage">
           <image src="../../images/filesync.png"></image>
           <text>待完成</text>
         </view>
-        <view class="bar-child">
+        <view class="bar-child" data-type="3" bindtap="jumpPage">
           <image src="../../images/filedone.png"></image>
           <text>已完成</text>
         </view>
-        <view class="bar-child">
+        <view class="bar-child" data-type="4" bindtap="jumpPage">
           <image src="../../images/message.png"></image>
           <text>评论</text>
         </view>
       </view>
       </view>
       <view class="oprate-list block">
+        <view class="modal" wx:if="{{!isLogIn}}"></view>
         <view class="title">
           <text>我的发布</text>
         </view>
         <view class="oprate-content">
-          <view class="oprate-list-child">
+          <view class="oprate-list-child" data-type="myPost" bindtap="jumpTo">
             <image src="../../images/cloudupload-o.png"></image>
             <text>我要发布</text>
           </view>
@@ -51,11 +56,20 @@
             <image src="../../images/unknowfile.png"></image>
             <text>待同意订单</text>
           </view>
+          <view class="oprate-list-child">
+            <image src="../../images/unknowfile.png"></image>
+            <text>待完成订单</text>
+          </view>
+          <view class="oprate-list-child">
+            <image src="../../images/unknowfile.png"></image>
+            <text>已完成订单</text>
+          </view>
         </view>
       </view>
-      <view class="block callback">
+      <!-- <view class="block callback">
+        <view class="modal" wx:if="{{!isLogIn}}"></view>
         <image src="../../images/callback.png"></image>
         <text>意见反馈</text>
-      </view> 
+      </view>  -->
   </view>
 </view>

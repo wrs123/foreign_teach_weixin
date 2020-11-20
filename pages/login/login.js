@@ -1,4 +1,6 @@
 // pages/login/login.js
+var app = getApp();
+
 Page({
 
   /**
@@ -34,15 +36,45 @@ Page({
 
     if (e.detail.userInfo) {
       let info = e.detail
-      //用户按了允许授权按钮
-    
-      wx.setStorage({
-        data: info,
-        key: 'userInfo',
+      //用户按了允许授权按钮signature
+      
+      console.log(e)
+      wx.login({
+        success: function(d){
+         
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session?appid='+app.globalData.appId+'&secret='+app.globalData.appSecret+'&js_code='+d.code+'&grant_type=authorization_code',
+            data: {},
+            success: function(e){
+              console.log(e)
+              if(e.openid){
+                wx.request({
+                  url: '',
+                  method: 'POST',
+                  data: {
+                    
+                  },
+                  success: function(res){}
+                })
+              }
+              wx.setStorage({
+                data: info,
+                key: 'userInfo',
+              })
+              wx.setStorage({
+                data: e.openid,
+                key: 'openId',
+              })
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }
+          })
+        }
       })
-      wx.switchTab({
-        url: '../index/index',
-      })
+      
+
+      
   } else {
       //用户按了拒绝按钮
       wx.showModal({
