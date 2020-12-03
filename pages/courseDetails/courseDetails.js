@@ -43,6 +43,7 @@ create(store, {
     commentList: [],
     loadComment: false,
     loadCommentFalse: false,
+    isReservation: false,
   },
 
   /**
@@ -108,6 +109,36 @@ create(store, {
     if(!this.data.hasComment){
       this.getCommentList(true)
     }
+  },
+  //预约课程
+  reservationCourse: function(e){
+    if(!this.data.isReservation){
+      this.setData({
+        isReservation: true
+      })
+      let that = this
+      let data = {
+        openId: this.store.data.openId,
+        courseId: this.data.courseId
+      }
+      console.log(data)
+      Api.reservationCourse(data, res => {
+        console.log(res)
+        if(res.code == 200 && res.status == "success"){
+          that.setData({
+            isReservation: false,
+          })
+          wx.navigateTo({
+            url: '/pages/order/order?type=1&status=1'
+          })
+          return true;
+        }
+          that.setData({
+            isReservation: false,
+          })
+      })
+    }
+    
   },
   getCommentList: function(first){
     this.setData({

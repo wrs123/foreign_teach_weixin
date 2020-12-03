@@ -23,6 +23,19 @@
       </view>
     </view>  
     <view class="form-item">
+      <text class="item-title">联系电话</text>
+      <view class="item-input courseName">
+        <van-cell-group>
+          <van-field
+            model:value="{{phoneNumber}}"
+            placeholder="请输入联系电话"
+            label=""
+            clickable="true"
+          />
+        </van-cell-group>
+      </view>
+    </view>  
+    <view class="form-item">
       <text class="item-title">课程类型</text>
       <view class="item-input" style="padding: 0 10px;" bind:tap="openTypeAction">
         <van-cell title="{{typeName}}" is-link value="点击选择" />

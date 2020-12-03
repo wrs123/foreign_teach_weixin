@@ -20,6 +20,7 @@ create(store, {
     typeName: '小学',
     areaId: '',
     areaName: '',
+    phoneNumber: '',
     coverId: '',
     imageUrl: false,
     uploadFalse: false,
@@ -148,7 +149,8 @@ create(store, {
       type: data.type,
       coverId: data.coverId,
       areaId: data.areaId,
-      openId: this.store.data.openId
+      openId: this.store.data.openId,
+      phoneNumber: data.phoneNumber.toInt()
     }
 
     console.log(courseInfo)
@@ -156,6 +158,9 @@ create(store, {
       console.log(e)
       that.setData({
         posting: false
+      })
+      wx.navigateTo({
+        url: '/pages/order/order?type=1&status=0'
       })
     })
   },

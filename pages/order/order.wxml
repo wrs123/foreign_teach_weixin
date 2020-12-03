@@ -8,6 +8,7 @@
     height="90"  
     barType="normal"
     background="#F1F2F3"
+    selected="{{type}}"
   />
 <view class="body" style="height: calc(100vh - {{navBarHeight+45}}px)">
   <view class="loadWidget" wx:if="{{isLoad}}">

@@ -85,7 +85,7 @@
   </view>
 </view>
 <view class="reserve" wx:if="{{!isLoad}}">
-  <view class="reserveButton">
+  <view class="reserveButton" bindtap="reservationCourse">
     立即预约
   </view>
 </view>
@@ -95,3 +95,14 @@
 </view>
 <view class="errpage" wx:if="{{loadErr}}">
 </view>
+<view class="reservationPload" wx:if="{{isReservation}}">
+  <view class="box" style="">
+    <load
+      text="预约中"
+      dialogType="default"
+      decration="cloumn"
+      fontSize="16"
+    ></load>
+  </view>
+</view>
+<van-notify id="van-notify" />

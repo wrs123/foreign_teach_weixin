@@ -16,9 +16,9 @@
         <view class="case">
             <view class="pcount">
               <van-icon name="user-o" size="22rpx"/>
-              <text>171</text>
+              <text>{{item.authCourseCount}}</text>
             </view>
-            <text class="ccount">11人评价</text>
+            <text class="ccount">{{item.commentCount}}人评价</text>
         </view>
         <view class="cost">
           <text>¥{{item.price}}</text>

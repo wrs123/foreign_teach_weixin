@@ -9,6 +9,18 @@ Component({
     textColor: {
       type: String,
       value: '#727272'
+    },
+    dialogType: {
+      type: String,
+      value: 'normal'
+    },
+    text: {
+      type: String,
+      value: '加载中...'
+    },
+    textSize: {
+      type: String,
+      value: '15'
     }
   },
 

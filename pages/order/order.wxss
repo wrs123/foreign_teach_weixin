@@ -2,7 +2,12 @@
 .body{
   width: 100%;
   background-color: #F1F2F3;
-  /* padding: 0 10px; */
+  overflow-y: auto;
+}
+
+page{
+  width: 100vw;
+  height: 100vh;
 }
 
 .loadWidget{
@@ -18,4 +23,16 @@
   border-radius: 5px;
   margin: 0 10px;
   margin-bottom: 10px;
+}
+
+.courseInfo{
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.courseInfo image{
+  width: 100px;
+  height: 100px;
 }

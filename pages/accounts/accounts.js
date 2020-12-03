@@ -118,11 +118,12 @@ create(store,{
   },
   jumpPage: function(e){
     let type = e.currentTarget.dataset.type
+    let status = e.currentTarget.dataset.status
 
     console.log(type)
 
     wx.navigateTo({
-      url: '/pages/order/order?type='+type
+      url: '/pages/order/order?type='+type+'&status='+status
     })
   },
   changeNavType: function(){

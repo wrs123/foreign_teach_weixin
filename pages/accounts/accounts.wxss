@@ -148,11 +148,16 @@
 
 .oprate-list-child{
   display: flex;
-  width: 100%;
+  width: calc(100% - 35px);
   flex-direction: row;
   padding: 25rpx 20rpx 25rpx 20rpx;
   align-items: center;
   border-bottom: .15rpx solid rgba(0,0,0,.04);
+  border-radius: 5px;
+}
+
+.oprate-list-child:active{
+  background-color: rgba(0,0,0,.1);
 }
 
 .oprate-list-child:last-child{

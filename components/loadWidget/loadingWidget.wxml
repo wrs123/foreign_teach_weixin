@@ -1,13 +1,19 @@
 <!--components/loadWidget/loadingWidget.wxml-->
-<view class="model" style="height: calc(100vh - {{navHeigBarHeight}}px)">
+<view wx:if="{{dialogType == 'normal'}}" class="model" style="height: calc(100vh - {{navHeigBarHeight}}px)">
   <view class='dialog' style="top: {{(screenHeight-navHeigBarHeight)/2}}px">
     <e-load-more
       loading="true"
-      text="加载中..."
+      text="{{text}}"
       lineColor="#f2f2f2"
       loadingColor="#5BC88D"
       textSize="30"
       textColor="{{textColor}}"
     ></e-load-more>
   </view>
+</view>
+<view wx:if="{{dialogType == 'default'}}" class="dialogs">
+  <e-loading type='doubleBounce' color='#455488'/>
+  <text class="dialogText" style="font-size: {{textSize}}px; color: {{textColor}};">
+  {{text}}</text>
+
 </view>

@@ -45,10 +45,27 @@ create(store, {
   },
   onLoad: function () {
     console.log("主页加载")
+    //获取本地存储数据
+    this.getStrangeData();
     //获取当前位置P
     this.getLocation()
     //判断滚动
     this.onPageScroll()
+    
+  },
+  getStrangeData: function(){
+    let that = this
+
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+          
+          //调用API从本地缓存中获取数据
+          console.log(res.data)
+          that.store.data.openId = res.data.openid
+          that.update()
+      },
+    })
   },
   onShow: function(){
     console.log(this.store.data.position.city);

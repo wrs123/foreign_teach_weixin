@@ -12,6 +12,7 @@ create(store,{
    */
   data: {
     type: 0,
+    status: 1,
     statusTabs: ['全部','待确认','待完成','已完成'],
     courseList: [],
     navBarHeight: app.globalData.navBarHeight,
@@ -33,9 +34,11 @@ create(store,{
   onLoad: function (options) {
     
     const type = options.type
+    const status = options.status
     
     this.setData({
-      type: type
+      type: type,
+      status: status
     })
     //获取订单列表
     this.loadOrderList()
@@ -45,7 +48,7 @@ create(store,{
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+ 
   },
 
   /**
@@ -66,7 +69,8 @@ create(store,{
     let type = this.data.type - 1
     let that = this
     let data = {
-      openId: this.store.data.openId
+      openId: this.store.data.openId,
+      status: this.data.status
     }
 
     if(type != -1){

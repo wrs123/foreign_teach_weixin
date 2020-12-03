@@ -114,17 +114,17 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 50px;
+  height: 60px;
   background-color: white;
-  border: 1px solid rgba(144,155,160,.3);
+  border: .5px solid rgba(144,155,160,.3);
 }
 
 .reserve .reserveButton{
   background-color: #1aad19;
-  width: calc(100vw - 50px);
-  height: 36px;
+  width: calc(100vw - 100px);
+  height: 40px;
   margin: auto;
-  margin-top: 7px;
+  margin-top: 10px;
   text-align: center;
   border-radius: 50px;
   display: flex;
@@ -185,4 +185,26 @@
   padding-top: 10px;
   font-size: 12px;
   color: #BCBCBC;
+}
+
+.reservationPload{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.7);
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservationPload .box{
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

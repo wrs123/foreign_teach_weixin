@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "e-load-more": "/components/easyui/load_more/load_more"
+    "e-load-more": "/components/easyui/load_more/load_more",
+    "e-loading": "/components/easyui/loading/loading"
   }
 }
