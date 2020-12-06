@@ -140,7 +140,7 @@ function request(options = {}) {
     url: host+'/post/course',
     data: data,
     header: {
-      'content-type': 'application/x-www-form-urlencoded' // 默认值
+      "content-type": "application/x-www-form-urlencoded" // 默认值
     },
     method: 'POST'
   })

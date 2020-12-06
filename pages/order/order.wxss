@@ -33,6 +33,39 @@ page{
 }
 
 .courseInfo image{
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 90px;
+  margin-right: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.courseInfo .cont{
+  display: flex;
+  width: calc(100vw - 145px);
+  height: 90px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cont .title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cont .date{
+  font-size: 13px;
+  color: #9B9B9B;
+}
+
+.cont button{
+  padding: 0 7px;
+  margin: 0;
+}
+
+.cont .buttonGroup{
+  display: flex;
+  width: calc(100vw - 145px);
+  justify-content: flex-end;
 }

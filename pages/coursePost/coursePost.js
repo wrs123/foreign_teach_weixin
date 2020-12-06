@@ -149,8 +149,8 @@ create(store, {
       type: data.type,
       coverId: data.coverId,
       areaId: data.areaId,
-      openId: this.store.data.openId,
-      phoneNumber: data.phoneNumber.toInt()
+      phoneNumber: data.phoneNumber,
+      openId: this.store.data.openId
     }
 
     console.log(courseInfo)
@@ -174,11 +174,11 @@ create(store, {
   validateNumber(val) {
       return val.replace(/\D/g, '')
     },
-    handleInputCourseTime(e){
-      let value = this.validateNumber(e.detail)
-    this.setData({
-      courseTime: value
-    })
-    }
+  handleInputCourseTime(e){
+    let value = this.validateNumber(e.detail)
+  this.setData({
+    courseTime: value
+  })
+  }
   
 })
