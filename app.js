@@ -5,19 +5,19 @@ App({
     //获取nav高度
     this.setNavBarInfo()
     //判断用户是否登陆
-    wx.getStorage({
-      key: 'userInfo',
-      success: function(res) {
+    // wx.getStorage({
+      // key: 'userInfo',
+      // success: function(res) {
           
-          //调用API从本地缓存中获取数据
-          console.log(res.data)
-      },
-      fail: function(e){
-        wx.reLaunch({
-          url: '/pages/login/login',
-        })
-      }
-    })
+      //     //调用API从本地缓存中获取数据
+      //     console.log(res.data)
+      // },
+      // fail: function(e){
+      //   wx.reLaunch({
+      //     url: '/pages/login/login',
+      //   })
+    //   }
+    // })
   },
   getUserInfo:function(cb){
     var that = this
@@ -45,7 +45,9 @@ App({
     menuHeight: 0, // 胶囊高度（自定义内容可与胶囊高度保证一致）
     menuWidth: 0,
     screenWidth: 0,
-    screenHeight: 0
+    screenHeight: 0,
+    appId: 'wxa399386d9e24745e',
+    appSecret: '431f42421abfa5705a02e381d573f74d'
   }
   ,
   /**

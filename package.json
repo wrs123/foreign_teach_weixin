@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "@vant/weapp": "^1.5.1"
+    "@vant/weapp": "^1.6.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -4,12 +4,14 @@
     "pages/course/course",
     "pages/mystudy/mystudy",
     "pages/accounts/accounts",
-    "pages/other/other",
     "pages/logs/logs",
     "pages/positionSelect/positionSelect",
     "pages/searchPage/index",
     "pages/courseDetails/courseDetails",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/order/order",
+    "pages/coursePost/coursePost",
+    "pages/orderRes/index"
   ],
   "window": {
     "navigationStyle": "custom",
