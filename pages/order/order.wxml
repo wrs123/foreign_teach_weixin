@@ -25,7 +25,7 @@
           <text class="date">{{item.ctime}}</text>
         </view>
         <view class="buttonGroup">
-          <button class="mini-btn" type="primary" size="mini">{{status == 1 ? '联系老师' : '同意订单'}}</button>
+          <button class="mini-btn" type="primary" size="mini" bindtap="tel" data-phone="{{item.phoneNumber}}">{{status == 1 ? '联系老师' : '同意订单'}}</button>
           <view style="margin-right: 5px"></view>
           <button vw:if="{{status == 0}}" type="warn" size="mini">{{status == 1 ? '取消订单' : '拒绝订单'}}</button>
         </view>

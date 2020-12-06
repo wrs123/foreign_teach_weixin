@@ -88,5 +88,22 @@ create(store,{
       }
       
     })
+  },
+  /**
+   * 拨打电话
+   * @param {} e 
+   */
+  tel:function (e) {
+    console.log(e)
+    let number = e.target.dataset.phone
+    
+    if(typeof(number) != "undefined"){
+      wx.makePhoneCall({
+        phoneNumber: number.toString(),
+      })
+      return true;
+    }
+
+    console.log("拨打电话失败！")
   }
 })
