@@ -1,8 +1,35 @@
 <!--pages/searchPage/index.wxml-->
-<navBar 
-  title="" 
-  fontColor="#333" 
-  backgroundColor="#fff" 
-  isback='true'
-  isSearch="true"
-  ></navBar>
+<view class="navbar " style="height: {{navBarHeight}}px; background-color: #fff;">
+  <view class="capsule-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; bottom:{{menuBotton}}px;">
+    <view class="backButton" style="height: {{menuHeight}}px; width: {{menuHeight}}px" bindtap="reurnPage">
+      <van-icon name="arrow-left" size="20" color="#333"/>
+    </view>
+    <view class="title" style="width: {{searchWidth+20}}px; border-radius: 50px; border: 1px solid #777;padding-left: 10px; padding-top: 5px;">
+      <input placeholder="搜索课程名" style="width: {{searchWidth -20}}px" bindinput="bindKeyInput"/>
+      <button class="mini-btn" type="default" size="mini" style="padding: 0px;" bindtap="search">搜索</button>
+    </view>
+  </view>
+</view>
+<view class="body" style="height: calc(100vh - {{navBarHeight}}px); top: {{navBarHeight}}px">
+  <view class='courseItem' wx:for="{{courseList}}" bindtap="jumpToDetailsPage" data-data="{{item}}" data-id="{{item.id}}">
+      <image class="img" src="{{item.cover}}" style="height:{{imageHeight}}px;width:{{imageWidth}}px"></image>
+      <view class="text" style="width:{{contentWidth-imageWidth}}px">
+        <text class="title">{{item.name}}</text>
+        <view class="case">
+            <view class="pcount">
+              <van-icon name="user-o" size="22rpx"/>
+              <text>{{item.authCourseCount}}</text>
+            </view>
+            <text class="ccount">{{item.commentCount}}人评价</text>
+        </view>
+        <view class="cost">
+          <text>¥{{item.price}}</text>
+        </view>
+      </view>
+    </view> 
+</view>
+
+<view wx:if="{{courseList.length == 0}}" style="height: calc(100vh - {{navBarHeight}}px); width: 100vw; display: flex;align-items: center; justify-content: center; position: fixed; z-index: 9999; top: {{navBarHeight}}px">
+  <text>无数据</text>
+</view>
+<van-notify id="van-notify" />

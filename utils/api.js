@@ -13,10 +13,7 @@
       }else{
         //部署环境
         host = "https://aksdj.icu/ft"
-        wx.showToast({
-          title: "henji",
-          icon: 'none',
-        });
+        
       }
     },
   })
@@ -323,6 +320,32 @@ function request(options = {}) {
     });
  }
 
+/**
+ * 搜索课程
+ * @param {*} data 
+ * @param {*} complete 
+ */
+ function search(data, complete){
+  request({
+    url: host+'/app/course/search',
+    data: data,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+  })
+    .then((res) => {
+      
+      complete(res.data)
+    })
+    .catch((err) => {
+      console.log(2222)
+      resultParam.status = 'fail'
+      resultParam.code = 111
+      resultParam.message = err.errMsg
+      complete(resultParam)
+    });
+ }
 
  module.exports.getCourseList = getCourseList
  module.exports.getOpenId= getOpenId
@@ -336,7 +359,7 @@ function request(options = {}) {
  module.exports.orderDo = orderDo
  module.exports.commentPost = commentPost
  module.exports.userComment = userComment
- 
+ module.exports.search = search
  
  
  
