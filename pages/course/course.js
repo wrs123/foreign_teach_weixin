@@ -141,7 +141,7 @@ create(store,{
   jumpToDetailsPage: function(e){
     let data = e.currentTarget.dataset.data
     data = JSON.stringify(data)
-
+    console.log(data)
     wx.navigateTo({
       url: '../courseDetails/courseDetails?data='+data
     })

@@ -4,6 +4,7 @@
     "van-icon": "@vant/weapp/icon/index",
     "course-unit": "/components/courseListUnit/courseListUnit",
     "e-tabs": "/components/easyui/senior/tabs/tabs",
-    "auto-text": "/components/autoText/autoText"
+    "auto-text": "/components/autoText/autoText",
+    "van-notify": "@vant/weapp/notify/index"
   }
 }

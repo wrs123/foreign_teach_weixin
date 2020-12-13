@@ -29,7 +29,18 @@ Component({
   onReady: function () {
 
   },
-
+  methods: {
+    taps: function(e){
+      let index = this.data.tabContantList[e.currentTarget.dataset.index]
+      let data = JSON.stringify(index)
+      console.log(e)
+  
+      wx.navigateTo({
+        url: '/pages/courseDetails/courseDetails?data='+data,
+      })
+    },
+  },
+  
   /**
    * 生命周期函数--监听页面显示
    */

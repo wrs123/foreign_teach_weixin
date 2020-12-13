@@ -76,6 +76,10 @@ create(store, {
   },
   getCommentList: function(){
     if(!this.data.load){
+      that.setData({
+        
+        load: true
+      })
       let that = this
       let data = {
         userId: this.store.data.openId

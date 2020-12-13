@@ -3,22 +3,22 @@
   <view 
   class="course_unit" 
   wx:for="{{tabContantList}}" 
-  index="{{index}}" 
   style="width:{{unitWidth}}px;margin-right:{{index % 2 == 0 ? 15 : 0}}px;"
+  bindtap="taps" data-index="{{index}}"
 >
-  <image class="unit_image" style="width:{{unitWidth}}px; height: {{(unitWidth/16)*9}}px"></image>
-  <view class="unit_text">
-      <view class="unit_title">MYSQL入门到入土</view>
+  <image class="unit_image" style="width:{{unitWidth}}px; height: {{(unitWidth/16)*9}}px" src="{{item.cover}}"></image>
+  <view class="unit_text" >
+      <view class="unit_title">{{item.name}}</view>
       <view class="unit_status_bar">
         <view class="unit_reservation_cost">
-          <text>¥233</text>
+          <text>¥{{item.price}}</text>
         </view>
         <view class="unit_reservation_status unit_s">
           <van-icon name="clock-o" />
-          <text>9820</text>
+          <text>{{item.authCourseCount}}</text>
         </view>
         <view class="unit_comment_count unit_s">
-          <text>92人评论</text>
+          <text>{{item.commentCount}}人评论</text>
         </view>
       </view>
   </view>

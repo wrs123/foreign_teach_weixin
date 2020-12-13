@@ -2,7 +2,9 @@
 import create from '../../utils/create'
 import store from '../../store'
 import Api from '../../utils/api'
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify'
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js');
+
 
 //获取应用实例
 var app = getApp();
@@ -33,7 +35,7 @@ create(store, {
     courseTabList: [0, 1, 2, 3],
     tabsHeight: 30,
     activeTabIndex: 0,
-    courseList: ['', '','','',''],
+    courseList: [],
     navBarHeight: app.globalData.navBarHeight,//导航栏高度
     menuBotton: app.globalData.menuBotton,//导航栏距离顶部距离
     menuHeight: app.globalData.menuHeight, //导航栏高度
@@ -41,7 +43,9 @@ create(store, {
     menuWidth: app.globalData.menuWidth,
     searchWidth: app.globalData.screenWidth-(app.globalData.menuWidth+(app.globalData.menuRight*2)+100+app.globalData.menuRight),
     navShadow: false,
-    screenWidth: app.globalData.screenWidth
+    screenWidth: app.globalData.screenWidth,
+    load: false,
+    error: false
   },
   onLoad: function () {
     console.log("主页加载")
@@ -51,6 +55,8 @@ create(store, {
     this.getLocation()
     //判断滚动
     this.onPageScroll()
+    //获取课程列表
+    this.getCourseList()
     
   },
   getStrangeData: function(){
@@ -68,6 +74,32 @@ create(store, {
       },
     })
   },
+  getCourseList: function(){
+    if(!this.data.load){
+      this.setData({
+        load: true
+      })
+      let that = this
+    
+      Api.getCourseList(this.data.activeTabIndex, function(res){
+        console.log(res)
+        if(res.statusCode == 200 && res.message == 'request:ok'){
+          
+          that.setData({
+            courseList: res.data.resultList,
+            load: false
+          })
+          console.log(res)
+          return true
+        }
+        that.setData({
+          load: false
+        })
+        Notify({ type: 'danger', message: res.message})
+      })
+    }
+    }  
+  ,
   onShow: function(){
     console.log(this.store.data.position.city);
     wx.showToast({
@@ -85,6 +117,7 @@ create(store, {
    this.setData({
     activeTabIndex: e.detail.currentTarget.dataset.index
    })
+   this.getCourseList()
    console.log("activeTabIndex"+ this.data.activeTabIndex)
   },
   //获取当前所在位置

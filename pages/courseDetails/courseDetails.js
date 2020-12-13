@@ -164,9 +164,7 @@ create(store, {
     })
   },
   reurnPage: function(){
-    wx.switchTab({
-      url: '/pages/course/course' 
-    })
+    wx.navigateBack()
   },
   onPageScroll: function(e){
     // console.log(e.scrollTop)
