@@ -64,6 +64,7 @@ create(store, {
           console.log(res.data)
           that.store.data.openId = res.data.openid
           that.update()
+          console.log(that.store.data.openId)
       },
     })
   },
@@ -101,6 +102,7 @@ create(store, {
   //解析坐标为地址
   locationToCity(p){
     let that = this;
+    
     var qqmapsdk = new QQMapWX({
       key: this.store.data.mapKey // 必填
     });

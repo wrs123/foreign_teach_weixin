@@ -11,7 +11,9 @@
     "pages/login/login",
     "pages/order/order",
     "pages/coursePost/coursePost",
-    "pages/orderRes/index"
+    "pages/orderRes/index",
+    "pages/commentPost/index",
+    "pages/comment/index"
   ],
   "window": {
     "navigationStyle": "custom",

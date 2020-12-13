@@ -29,10 +29,6 @@
           <text>待完成</text>
         </view>
         <view class="bar-child" data-type="3" data-status="1" bindtap="jumpPage">
-          <image src="../../images/filedone.png"></image>
-          <text>已完成</text>
-        </view>
-        <view class="bar-child" data-type="4" data-status = "1" bindtap="jumpPage">
           <image src="../../images/message.png"></image>
           <text>评论</text>
         </view>

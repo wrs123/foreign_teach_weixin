@@ -1,0 +1,37 @@
+/* pages/comment/index.wxss */
+.body{
+  display: block;
+  width: 100vw;
+  padding: 10px;
+  background-color: #F1F2F3;
+  position: fixed;
+  overflow-y: auto;
+}
+.commentUnit{
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+.commentCon text{
+  color: #666666;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.star{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.starChoose{
+  display: flex;
+  flex-direction: row;
+}
+

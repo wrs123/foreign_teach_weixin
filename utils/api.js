@@ -260,6 +260,69 @@ function request(options = {}) {
       complete(err.data)
     });
  }
+/**
+ * 订单操作
+ * @param {*} data 
+ * @param {*} complete 
+ */
+ function orderDo(data, complete){
+  request({
+    url: host+'/order/orderDo',
+    data: data,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+  })
+    .then((res) => {
+      complete(res.data)
+    })
+    .catch((err) => {
+      complete(err.data)
+    });
+ }
+
+ /**
+  * 提价评论
+  * @param {*} data 
+  * @param {*} complete 
+  */
+ function commentPost(data, complete){
+  request({
+    url: host+'/comment/post',
+    data: data,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
+    },
+  })
+    .then((res) => {
+      complete(res.data)
+    })
+    .catch((err) => {
+      complete(err.data)
+    });
+ }
+
+ /**
+  * 用户评论列表
+  * @param {*} data 
+  * @param {*} complete 
+  */
+ function userComment(data, complete){
+  request({
+    url: host+'/comment/userComment',
+    data: data,
+    method: 'GET',
+  })
+    .then((res) => {
+      complete(res.data)
+    })
+    .catch((err) => {
+      complete(err.data)
+    });
+ }
+
 
  module.exports.getCourseList = getCourseList
  module.exports.getOpenId= getOpenId
@@ -270,5 +333,10 @@ function request(options = {}) {
  module.exports.getCourseDetails = getCourseDetails
  module.exports.getCommentList = getCommentList
  module.exports.reservationCourse = reservationCourse
-
+ module.exports.orderDo = orderDo
+ module.exports.commentPost = commentPost
+ module.exports.userComment = userComment
+ 
+ 
+ 
  

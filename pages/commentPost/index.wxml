@@ -1,0 +1,48 @@
+
+<navBar title="写评论" fontColor="#333" backgroundColor="#F1F2F3" bottomBorder="true" isback="true">
+</navBar>
+<view class="body" style="height: calc(100vh - {{navBarHeight}}px)">
+  <view class="commentUnit">
+    <view class="courseDetails">
+      <image src="{{cover}}" class="cover"></image>
+      <view class="content">
+        <text style="color: #666666; font-size: 15px;">{{courseName}}</text>
+        <text style="color: #999999; font-size: 13px;">类型: {{courseTypeMap[courseType]}}课程</text>
+      </view>
+    </view>
+    <view class="commentCon">
+      <view class="star">
+        <text>课程评级</text>
+        <view class="starChoose">
+          <view wx:for="{{stars}}">
+            <van-icon wx:if="{{item<star || item==star}}" size="20px" name="star"  bindtap="starTap" data-index="{{item}}" color="red"
+            custom-style="margin-left: 5px;"/>
+            <van-icon wx:else size="20px" name="star-o"  bindtap="starTap" data-index="{{item}}"
+            custom-style="margin-left: 5px;"/>
+          </view>
+          
+        </view>
+      </view>
+      <form bindsubmit="post">
+        <view style="margin-top: 10px;">
+        <textarea placeholder="请从多个方面评价课程，可以帮助更多想学习本课程的人" width="100%" maxlength="100" placeholder-style="font-size: 14px;" name="textarea"></textarea>
+        </view>
+        <button type="primary" form-type="submit" >提交</button>
+      </form>
+      
+    </view>
+    
+  </view>
+  
+</view>
+<van-notify id="van-notify" />
+<view class="postLoad">
+  <van-overlay show="{{post}}" z-index="30">
+    <view class="wrapper">
+      <view class="cont">
+        <van-loading /> 
+        <text>加载中～</text>
+      </view>
+    </view>
+  </van-overlay>
+</view>

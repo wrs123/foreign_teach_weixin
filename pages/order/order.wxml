@@ -1,5 +1,5 @@
 <!--pages/order/order.wxml-->
-<navBar title="{{status == 0 ? '我的发布': '我的订单'}}" fontColor="#333" backgroundColor="#F1F2F3" bottomBorder="true" isback="true">
+<navBar title="{{status == 0 ? '我的订单': '我的预约'}}" fontColor="#333" backgroundColor="#F1F2F3" bottomBorder="true" isback="true">
 </navBar>
 <e-tabs
     items='{{statusTabs}}'
@@ -24,12 +24,85 @@
         <view style="display: flex; justify-content: flex-end; width: calc(100vw - 145px);">
           <text class="date">{{item.ctime}}</text>
         </view>
-        <view class="buttonGroup">
-          <button class="mini-btn" type="primary" size="mini" bindtap="tel" data-phone="{{item.phoneNumber}}">{{status == 1 ? '联系老师' : '同意订单'}}</button>
+        <view class="buttonGroup" wx:if="{{type != 0}}">
+          <button 
+            class="mini-btn" 
+            wx:if="{{status == 0 && type == 1}}" 
+            type="primary" 
+            size="mini" 
+            bindtap="orderDo" 
+            data-status="1" 
+            data-type="{{status}}" 
+            data-userId="{{item.userId}}" 
+            data-courseId="{{item.id}}"
+            data-index="{{index}}"
+          >接收订单</button>
+          <button 
+            class="mini-btn" 
+            wx:if="{{status == 1 && type == 2}}" type="primary" 
+            size="mini" 
+            bindtap="tel" 
+            data-phone="{{item.phoneNumber}}"
+            data-type="{{status}}" 
+            data-userId="{{item.userId}}" 
+            data-courseId="{{item.id}}"
+          >联系老师
+          </button>
           <view style="margin-right: 5px"></view>
-          <button vw:if="{{status == 0}}" type="warn" size="mini">{{status == 1 ? '取消订单' : '拒绝订单'}}</button>
+          <button 
+            wx:if="{{(status == 1 && type == 2) || (status == 1 && type == 1)}}" 
+            type="warn" 
+            size="mini" 
+            bindtap="orderDo"
+            data-courseId="{{item.id}}"
+            data-status="3" 
+            data-userId="{{item.userId}}"
+            data-index="{{index}}"
+          >取消订单</button>
+          <button 
+            wx:if="{{(status == 0 && type == 1)}}" 
+            type="warn" 
+            size="mini" 
+            bindtap="orderDo"
+            data-courseId="{{item.id}}"
+            data-status="3" 
+            data-userId="{{item.userId}}"
+            data-index="{{index}}"
+          >拒绝订单</button>
+          <button 
+            wx:if="{{(status == 0 && type == 2)}}" 
+            type="primary" 
+            size="mini" 
+            bindtap="orderDo"
+            data-courseId="{{item.id}}"
+            data-status="2" 
+            data-userId="{{item.userId}}"
+            data-index="{{index}}"
+          >确认完成</button>
+          <button
+            wx:if="{{(status == 1 && type == 3)}}" 
+            type="default" 
+            size="mini" 
+            bindtap="commentDo"
+            data-index="{{index}}"
+            data-wacId="{{item.wacId}}"
+          >评论</button>
+        </view>
+        <view wx:if="{{type == 0}}" class="orderStatus">
+          <text wx:if="{{item.type == 1 && item.status == 2}}" style="color: #5BC88D;">待评价</text>
+          <text wx:if="{{item.type == 1 && item.status == 0}}" style="color: #DC6932;">待确认</text>
+          <text wx:if="{{item.type == 1 && item.status == 3}}" style="color: 	#DC143C;">已取消</text>
+          <text wx:if="{{item.status == 1 }}" style="color: #1E90FF;">待完成</text>
+          <text wx:if="{{item.type == 0 && item.status == 3}}" style="color: 	#DC143C;">已拒绝</text>
+          <text wx:if="{{item.type == 0 && item.status == 0}}" style="color: #DC6932;">待同意</text>
+          <text wx:if="{{item.type == 0 && item.status == 2}}" style="color: #5BC88D;">待评价</text>
+          <text wx:if="{{item.status == 4}}" style="color: #5BC88D;">已评价</text>
         </view>
       </view>
       </view>
   </view>
 </view>
+<view class="loadWidget" style="width=100vw!important; height: 100vh!important;position: fixed;top: 0;background: #f2f2f2f1;" wx:if="{{orderDoing}}">
+    <van-loading size="24px">处理中...</van-loading>
+  </view>
+  <van-notify id="van-notify" />

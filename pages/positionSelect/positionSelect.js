@@ -60,7 +60,7 @@ create(store, {
     var searchLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"];
     new Promise(function (resolve) {
       that.getCity(function (data) {
-       
+       console.log(data)
         let cityObj = data.cityList;
         var tempObj = [];
         for (var i = 0; i < searchLetter.length; i++) {
@@ -119,6 +119,7 @@ create(store, {
     qqmapsdk.getCityList({
       sig: this.store.data.mapKey,
       success: function(data){
+       
         if(data.status == 0){
           that.setData({
             cityList: data.result[1],

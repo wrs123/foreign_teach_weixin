@@ -2,6 +2,7 @@
 import create from '../../utils/create'
 import store from '../../store'
 import Api from '../../utils/api'
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 
 var app = getApp();
 
@@ -13,10 +14,11 @@ create(store,{
   data: {
     type: 0,
     status: 1,
-    statusTabs: ['全部','待确认','待完成','已完成'],
+    statusTabs: ['全部','待确认','待完成','评论'],
     courseList: [],
     navBarHeight: app.globalData.navBarHeight,
     isLoad: true,
+    orderDoing: false
   },
   onTbaChange: function(e){
     console.log(e)
@@ -40,6 +42,7 @@ create(store,{
       type: type,
       status: status
     })
+    console.log(options)
     //获取订单列表
     this.loadOrderList()
   },
@@ -70,11 +73,13 @@ create(store,{
     let that = this
     let data = {
       openId: this.store.data.openId,
-      status: this.data.status
+      type: this.data.status
     }
 
     if(type != -1){
-      data.type = type
+      data.status = type
+    }else{
+      data.status = 999
     }
 
     Api.getOrderList(data,function(res){
@@ -105,5 +110,55 @@ create(store,{
     }
 
     console.log("拨打电话失败！")
+  },
+  /**
+   * 订单操作
+   * @param {*} e 
+   */
+  orderDo: function(e){
+    console.log(e)
+    let status = e.target.dataset.status
+    let index = e.target.dataset.index
+    let wacId = this.data.courseList[index].wacId
+
+    if(this.data.status == 1 && status == "1"){
+      this.tel(e)
+    }
+    let that = this
+    this.setData({
+      orderDoing: true
+    })
+    let data = {
+      courseId: e.target.dataset.courseid,
+      status: status,
+      userOpenId: e.target.dataset.userid,
+      id: wacId
+    }
+    console.log(data)
+    Api.orderDo(data, res => {
+      console.log(res)
+      if(res.status == 'success' && res.code == 200){
+        Notify({ type: 'success', message: '操作成功' });
+        console.log(index)
+        let courseList = this.data.courseList
+        courseList.splice(index, 1)
+        that.setData({
+          orderDoing: false,
+          courseList: courseList
+        })
+      }
+    })
+  },
+  commentDo: function(e){
+    let courseId = this.data.courseList[e.target.dataset.index].id
+    let cover = this.data.courseList[e.target.dataset.index].cover
+    let courceName  = this.data.courseList[e.target.dataset.index].name
+    let courseType = this.data.courseList[e.target.dataset.index].courseType
+    let wacId = this.data.courseList[e.target.dataset.index].wacId
+    
+    wx.navigateTo({
+      url: '/pages/commentPost/index?courseId='+courseId+'&cover='+cover+'&name='+courceName+'&courseType='+courseType+'&wacId='+wacId
+    })
+
   }
 })

@@ -71,11 +71,14 @@ create(store,{
                     data: res.data.openid,
                     key: 'openId',
                   })
+                  console.log(res.data.openid)
                   that.setData({
                     isLogIn: true,
                     avatarUrl: userInfo.avatarUrl,
                     nickName: userInfo.nickName
                   })
+                  that.store.data.openId = res.data.openid
+                  that.update()
                 }
               }) 
             }
@@ -122,8 +125,15 @@ create(store,{
 
     console.log(type)
 
+    if(type != 3){
+      wx.navigateTo({
+        url: '/pages/order/order?type='+type+'&status='+status
+      })
+      return true;
+    }
+    
     wx.navigateTo({
-      url: '/pages/order/order?type='+type+'&status='+status
+      url: '/pages/comment/index',
     })
   },
   changeNavType: function(){
@@ -155,9 +165,9 @@ create(store,{
   jumpTo: function(e){
     let type = e.currentTarget.dataset.type
 
-    console.log(type)
     wx.navigateTo({
       url: '/pages/coursePost/coursePost',
     })
+   
   }
 })

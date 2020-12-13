@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navBar": "/components/navigationbar/navigation_bar",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-overlay": "@vant/weapp/overlay/index"
+  }
+}

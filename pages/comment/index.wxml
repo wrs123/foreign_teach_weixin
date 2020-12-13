@@ -1,0 +1,31 @@
+<!--pages/comment/index.wxml-->
+<navBar title="评论列表" fontColor="#333" backgroundColor="#F1F2F3" bottomBorder="true" isback="true">
+</navBar>
+<view class="body" style="height: calc(100vh - {{navBarHeight}}px); top: {{navBarHeight}}px">
+  <view class="commentUnit" wx:for="{{commentList}}">
+    <text style="font-size: 18px!important; font-weight: normal!important; color: #333!important;">{{item.content}}</text>
+    <view class="commentCon">
+      
+      <view class="star">
+        <text>课程评级</text>
+        <view class="starChoose">
+          <view>
+            <view class="star">
+              <van-icon wx:for="{{item.star}}" size="18px" name="star"  color="red"
+            custom-style="margin-left: 5px;"/>
+            <van-icon size="18px" name="star-o"  
+            custom-style="margin-left: 5px;" wx:for="{{5-item.star}}"/>
+             
+            </view>
+
+            
+          </view>
+        </view>
+      </view>
+      
+      
+    </view>
+    
+  </view>
+  
+</view>

@@ -1,0 +1,74 @@
+/* pages/commentPost/index.wxss */
+.body{
+  background-color: #F1F2F3;
+  padding: 10px;
+}
+
+.commentUnit{
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.courseDetails{
+  display: flex;
+  flex-direction: row;
+}
+
+.courseDetails .content{
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  width: calc(100% - 100px);
+  margin-left: 10px;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+.cover{
+  width: 60px;
+  height: 60px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.commentCon{
+  margin-top: 15px;
+
+}
+
+.commentCon text{
+  color: #666666;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.star{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.starChoose{
+  display: flex;
+  flex-direction: row;
+}
+
+.postLoad .cont{
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cont text{
+  font-size: 14px;
+  color: #777;
+}

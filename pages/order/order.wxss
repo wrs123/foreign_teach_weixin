@@ -69,3 +69,13 @@ page{
   width: calc(100vw - 145px);
   justify-content: flex-end;
 }
+
+.cont .orderStatus{
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100vw - 145px);
+}
+
+.orderStatus text{
+  font-size: 13px;
+}

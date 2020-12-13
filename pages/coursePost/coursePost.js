@@ -146,10 +146,10 @@ create(store, {
       description: data.description,
       price: data.price,
       classTime: data.classTime,
-      type: data.type,
       coverId: data.coverId,
       areaId: data.areaId,
-      phoneNumber: data.phoneNumber,
+      phoneNumber: parseInt(data.phoneNumber),
+      type: data.type,
       openId: this.store.data.openId
     }
 
